@@ -13,7 +13,11 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-white/30 shadow-sm">
+    <header
+      className={`${
+        isMenuOpen ? "bg-white md:bg-white/70" : "bg-white/70"
+      } sticky top-0 z-50 backdrop-blur-md border-b border-white/30 shadow-sm`}
+    >
       <div className="container mx-auto flex justify-between items-center py-4 ps-0 pe-4 md:px-4 lg:px-8">
         <motion.div
           initial={{ scale: 1.1 }}
