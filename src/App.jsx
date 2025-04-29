@@ -1,16 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AboutPage from "./components/AboutPage";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/Landing/LandingPage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
+      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/:id" element={<AboutPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </>
   );
 }
