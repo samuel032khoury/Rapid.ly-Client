@@ -80,7 +80,7 @@ const Footer = () => {
             <h4 className="text-white font-bold mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/about" className="hover:text-white transition-colors">
                   About
                 </a>
               </li>

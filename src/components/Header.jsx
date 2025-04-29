@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-white/30 shadow-sm">
-      <div className="container mx-auto flex justify-between items-center py-4 px-4 lg:px-8">
+      <div className="container mx-auto flex justify-between items-center py-4 ps-0 pe-4 md:px-4 lg:px-8">
         <motion.div
           initial={{ scale: 1.1 }}
           whileInView={{ scale: 1 }}
@@ -25,7 +25,7 @@ const Header = () => {
           <a
             href="/"
             className={`${
-              hoverEnabled ? "hover:scale-110" : ""
+              hoverEnabled ? "md:hover:scale-110" : ""
             } transition-transform duration-700`}
           >
             <img
@@ -111,10 +111,13 @@ const Header = () => {
           )}
         </button>
       </div>
-      {/* Mobile Navigation */}
+
+      {/* Mobile Navigation - Overlapping Menu */}
       <div
-        className={`md:hidden bg-white/60 backdrop-blur-md border-b border-white/30 px-4 overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? "max-h-96 py-4 opacity-100" : "max-h-0 py-0 opacity-0"
+        className={`md:hidden fixed top-[64px] left-0 right-0 bg-white shadow-lg rounded-b-2xl border-b border-slate-200 px-4 overflow-hidden transition-all duration-300 ease-in-out z-40 ${
+          isMenuOpen
+            ? "max-h-96 py-4 opacity-100"
+            : "max-h-0 py-0 opacity-0 pointer-events-none"
         }`}
       >
         <nav className="flex flex-col space-y-4">

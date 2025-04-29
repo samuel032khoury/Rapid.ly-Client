@@ -1,13 +1,10 @@
-import { motion } from "framer-motion";
-import Header from "../Header";
 import HeroSection from "./sections/Hero";
-import URLShortenerWidget from "./URLShortenerWidget";
 import FeaturesSection from "./sections/Features";
 import StatsSection from "./sections/Stats";
 import HowItWorksSection from "./sections/HowItWorks";
 import TestimonialSection from "./sections/Testimonial";
 import CTASection from "./sections/CTA";
-import Footer from "../Footer";
+import URLShortenerWidget from "@/components/URLShortener";
 
 const LandingPage = () => {
   return (

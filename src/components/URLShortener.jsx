@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const URLShortener = () => {
+const URLShortenerWidget = () => {
   return (
     <div className="mx-6">
       <motion.div
@@ -8,7 +8,7 @@ const URLShortener = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="bg-white/10 backdrop-blur-xl max-w-4xl mx-auto rounded-xl overflow-hidden mt-0 mb-16 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] relative before:absolute before:content-[''] before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:rounded-xl"
+        className="bg-white/10 backdrop-blur-xl max-w-4xl mx-auto rounded-xl overflow-hidden mt-0 mb-4 md:mb-16 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] relative before:absolute before:content-[''] before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:rounded-xl"
       >
         <div className="p-8 relative">
           <h3 className="text-slate-800 font-bold text-xl mb-4">
@@ -36,4 +36,4 @@ const URLShortener = () => {
   );
 };
 
-export default URLShortener;
+export default URLShortenerWidget;

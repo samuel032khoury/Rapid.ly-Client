@@ -7,11 +7,11 @@ const HeroSection = () => {
   const shortUrl = "https://rapid.ly/x7B9q";
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center">
+    <section className="relative overflow-hidden min-h-screen flex items-center pb-6 md:pb-0">
       {/* Background gradient */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
       <div className="absolute top-48 -left-24 w-64 h-64 bg-blue-200 rounded-full opacity-40 blur-3xl"></div>
-      <div className="container mx-auto px-4 py-8 lg:py-12">
+      <div className="container mx-auto px-4 py-8 lg:py-12 lg:pt8">
         <div className="lg:flex items-center justify-between gap-12">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
             <motion.div
@@ -63,7 +63,7 @@ const HeroSection = () => {
               className="relative h-full"
             >
               {/* Browser Section */}
-              <div className="relative rounded-xl overflow-hidden shadow-xl drop-shadow-l bg-white border border-slate-400 z-10">
+              <div className="relative rounded-xl overflow-hidden shadow-xl drop-shadow-l bg-white border border-slate-400 z-10 min-h-96">
                 <div className="absolute top-0 left-0 w-full h-6 bg-slate-100 rounded-t-xl flex items-center px-3 z-10">
                   <div className="flex space-x-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
@@ -71,7 +71,7 @@ const HeroSection = () => {
                     <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
                   </div>
                 </div>
-                <div className="w-full rounded aspect-video bg-slate-50 overflow-hidden pt-5">
+                <div className="w-full h-96 rounded aspect-video bg-slate-50 overflow-hidden pt-5">
                   <div className="w-full h-10 bg-slate-100 border-b border-slate-200 flex items-center px-3">
                     <div className="flex space-x-2 items-center text-slate-500 text-sm w-full">
                       <div className="h-6 bg-white rounded flex-1 flex items-center px-2 border border-slate-300 overflow-hidden relative">
@@ -80,6 +80,7 @@ const HeroSection = () => {
                             overflow: "hidden",
                             display: "inline-block",
                             whiteSpace: "nowrap",
+                            position: "absolute",
                           }}
                           animate={{
                             width: [
@@ -101,11 +102,11 @@ const HeroSection = () => {
                           {longUrl}
                         </motion.div>
                         <motion.div
-                          className="absolute"
                           style={{
                             overflow: "hidden",
                             display: "inline-block",
                             whiteSpace: "nowrap",
+                            position: "absolute",
                           }}
                           animate={{
                             width: [
@@ -143,7 +144,7 @@ const HeroSection = () => {
                         repeat: Infinity,
                         repeatDelay: 2,
                       }}
-                      className="mt-16 mx-auto w-full max-w-md bg-white rounded-lg shadow-md p-4 border border-slate-200"
+                      className="my-8 md:mt-16 mx-auto w-full max-w-md bg-white rounded-lg shadow-md p-4 border border-slate-200"
                     >
                       <div className="flex justify-between items-center mb-3">
                         <div className="text-sm font-medium text-slate-800">
@@ -153,16 +154,19 @@ const HeroSection = () => {
                           Copy
                         </span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="overflow-hidden flex items-start md:items-center gap-3 flex-col md:flex-row">
                         <div className="flex-1">
                           <div className="text-xs text-slate-500 mb-1">
                             Original URL
                           </div>
-                          <div className="text-xs text-slate-700 truncate">
+                          <div className="text-xs text-slate-700 overflow-ellipsis">
                             https://example.com/very-long-path/...
                           </div>
                         </div>
-                        <div className="text-slate-400">→</div>
+                        <div className="text-slate-400 hidden md:block">→</div>
+                        <div className="text-slate-400 block md:hidden mx-auto">
+                          ↓
+                        </div>
                         <div className="flex-1">
                           <div className="text-xs text-slate-500 mb-1">
                             Short URL
