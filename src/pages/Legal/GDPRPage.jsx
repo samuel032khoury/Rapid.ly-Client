@@ -461,21 +461,21 @@ const GDPRPage = () => {
                 so, we ensure appropriate safeguards are in place to protect
                 your data, including:
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+              <div className="grid grid-cols-1 gap-3">
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>EU Standard Contractual Clauses</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Binding Corporate Rules</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Adequacy decisions by the European Commission</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Other legally approved transfer mechanisms</span>
                 </div>
               </div>
@@ -615,7 +615,7 @@ const GDPRPage = () => {
                   If you have any questions about our GDPR compliance or how we
                   handle your personal data, please contact us at:
                 </p>
-                <div className="bg-blue-50 p-4 rounded-lg inline-block">
+                <div className="bg-gray-50 w-full p-4 rounded-lg inline-block">
                   <p>
                     Rapid.ly, Inc.
                     <br />

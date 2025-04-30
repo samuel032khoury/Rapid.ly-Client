@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { FaBalanceScale, FaHeadset, FaUserShield } from "react-icons/fa";
+import {
+  FaBalanceScale,
+  FaHeadset,
+  FaQuestionCircle,
+  FaUserShield,
+} from "react-icons/fa";
 
 const TermsOfServicePage = () => {
   const lastUpdated = "April 15, 2025";
@@ -58,8 +63,6 @@ const TermsOfServicePage = () => {
     { id: "disclaimer", title: "Disclaimer of Warranties", number: "8" },
     { id: "indemnification", title: "Indemnification", number: "9" },
     { id: "governing-law", title: "Governing Law", number: "10" },
-    { id: "miscellaneous", title: "Miscellaneous", number: "11" },
-    { id: "contact", title: "Contact Information", number: "12" },
   ];
 
   return (
@@ -407,134 +410,100 @@ const TermsOfServicePage = () => {
           </div>
 
           {/* Additional Sections */}
-          <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
-            <div id="disclaimer" className="mb-8">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
-                  8
-                </span>
-                Disclaimer of Warranties
-              </h3>
-              <div className="pl-10 text-gray-600">
-                <p className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                  OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT
-                  WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING,
-                  BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY,
-                  FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR COURSE
-                  OF PERFORMANCE.
-                </p>
-              </div>
+          <div
+            id="disclaimer"
+            className="bg-white rounded-xl shadow-lg p-8 mb-6"
+          >
+            <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
+              <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+                8
+              </span>
+              Disclaimer of Warranties
+            </h3>
+            <div className="pl-10 text-gray-600">
+              <p className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT
+                WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING,
+                BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR COURSE OF
+                PERFORMANCE.
+              </p>
             </div>
-
-            <div id="indemnification" className="mb-8">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
-                  9
-                </span>
-                Indemnification
-              </h3>
-              <div className="pl-10 text-gray-600">
-                <p className="bg-gray-50 p-4 rounded-lg">
-                  You agree to defend, indemnify, and hold harmless Rapid.ly,
-                  its affiliates, licensors, and service providers from and
-                  against any claims, liabilities, damages, judgments, awards,
-                  losses, costs, expenses, or fees arising out of or relating to
-                  your violation of these terms or your use of our services.
-                </p>
-              </div>
+          </div>
+          <div
+            id="indemnification"
+            className="bg-white rounded-xl shadow-lg p-8 mb-6"
+          >
+            <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
+              <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+                9
+              </span>
+              Indemnification
+            </h3>
+            <div className="pl-10 text-gray-600">
+              <p className="bg-gray-50 p-4 rounded-lg">
+                You agree to defend, indemnify, and hold harmless Rapid.ly, its
+                affiliates, licensors, and service providers from and against
+                any claims, liabilities, damages, judgments, awards, losses,
+                costs, expenses, or fees arising out of or relating to your
+                violation of these terms or your use of our services.
+              </p>
             </div>
+          </div>
 
-            <div id="governing-law" className="mb-8">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
-                  10
-                </span>
-                Governing Law
-              </h3>
-              <div className="pl-10 text-gray-600">
-                <p className="bg-gray-50 p-4 rounded-lg">
-                  These terms and your use of our services shall be governed by
-                  and construed in accordance with the laws of the State of
-                  California, without regard to its conflict of law provisions.
-                  You agree to submit to the personal and exclusive jurisdiction
-                  of the courts located within San Francisco County, California.
-                </p>
-              </div>
-            </div>
-
-            <div id="miscellaneous" className="mb-8">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
-                  11
-                </span>
-                Miscellaneous
-              </h3>
-              <div className="pl-10 text-gray-600">
-                <p className="bg-gray-50 p-4 rounded-lg">
-                  These terms constitute the entire agreement between you and
-                  Rapid.ly regarding our services and supersede any prior
-                  agreements or understandings. Our failure to enforce any right
-                  or provision of these terms will not be considered a waiver of
-                  such right or provision.
-                </p>
-              </div>
-            </div>
-
-            <div id="contact">
-              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
-                  12
-                </span>
-                Contact Information
-              </h3>
-              <div className="pl-10 text-gray-600">
-                <p className="mb-4">
-                  If you have any questions about our Terms of Service, please
-                  contact us at:
-                </p>
-                <div className="bg-blue-50 p-4 rounded-lg inline-block">
-                  <p>
-                    Rapid.ly, Inc.
-                    <br />
-                    123 Market Street
-                    <br />
-                    San Francisco, CA 94105
-                    <br />
-                    <a
-                      href="mailto:legal@rapid.ly"
-                      className="text-blue-600 hover:underline"
-                    >
-                      legal@rapid.ly
-                    </a>
-                  </p>
-                </div>
-              </div>
+          <div
+            id="governing-law"
+            className="bg-white rounded-xl shadow-lg p-8 mb-6"
+          >
+            <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32">
+              <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+                10
+              </span>
+              Governing Law
+            </h3>
+            <div className="pl-10 text-gray-600">
+              <p className="bg-gray-50 p-4 rounded-lg">
+                These terms and your use of our services shall be governed by
+                and construed in accordance with the laws of the State of
+                California, without regard to its conflict of law provisions.
+                You agree to submit to the personal and exclusive jurisdiction
+                of the courts located within San Francisco County, California.
+              </p>
             </div>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
-              <FaUserShield className="text-blue-600 text-3xl mr-4 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  Have Questions?
-                </h3>
-                <p className="text-gray-600">
-                  Contact our legal team for any questions regarding these
-                  terms.
-                </p>
-              </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+              <FaQuestionCircle className="text-blue-600 text-3xl mb-4" />
+              <h3 className="text-xl font-bold text-slate-800 mb-3">
+                Have Questions?
+              </h3>
+              <p className="text-gray-600">
+                Contact our{" "}
+                <a
+                  href="mailto:legal@rapid.ly"
+                  className="text-blue-600 hover:underline"
+                >
+                  legal team
+                </a>{" "}
+                for any questions regarding these terms.{" "}
+              </p>
             </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
-              <FaHeadset className="text-blue-600 text-3xl mr-4 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  Need Support?
-                </h3>
-                <p className="text-gray-600">
-                  Our support team is available 24/7 to assist you.
-                </p>
-              </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+              <FaHeadset className="text-blue-600 text-3xl mb-4" />
+              <h3 className="text-xl font-bold text-slate-800 mb-3">
+                Need Support?
+              </h3>
+              <p className="text-gray-600">
+                Our{" "}
+                <a
+                  href="mailto:support@rapid.ly"
+                  className="text-blue-600 hover:underline"
+                >
+                  support team
+                </a>{" "}
+                is available 24/7 to assist you.{" "}
+              </p>
             </div>
           </div>
 

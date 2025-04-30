@@ -307,43 +307,43 @@ const PrivacyPage = () => {
                 We use the information we collect for various purposes,
                 including:
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600">
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+              <div className="grid grid-cols-1 gap-3 text-gray-600">
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>
                     Providing, maintaining, and improving our services
                   </span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>
                     Processing transactions and sending related information
                   </span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>
                     Sending administrative messages and security alerts
                   </span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Responding to your comments and requests</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Developing new products and services</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Monitoring and analyzing trends and usage</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Detecting and preventing fraud and abuse</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Personalizing and improving your experience</span>
                 </div>
               </div>
@@ -483,20 +483,25 @@ const PrivacyPage = () => {
                   Depending on your location, you may have certain rights
                   regarding your personal information, including:
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600">
+                <div className="grid grid-cols-1 gap-3 mb-4">
+                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                    <span className="font-bold text-blue-600 mr-2">•</span>
                     Accessing and updating your information
                   </div>
-                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600">
+                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                    <span className="font-bold text-blue-600 mr-2">•</span>
                     Objecting to our processing of your information
                   </div>
-                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600">
+                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                    <span className="font-bold text-blue-600 mr-2">•</span>
                     Requesting restrictions on processing
                   </div>
-                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600">
+                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                    <span className="font-bold text-blue-600 mr-2">•</span>
                     Requesting portability of your information
                   </div>
-                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600">
+                  <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                    <span className="font-bold text-blue-600 mr-2">•</span>
                     Withdrawing consent
                   </div>
                 </div>
@@ -600,7 +605,7 @@ const PrivacyPage = () => {
                   If you have any questions about this Privacy Policy, please
                   contact us at:
                 </p>
-                <div className="bg-gray-50 p-4 rounded-lg inline-block">
+                <div className="bg-gray-50 p-4 rounded-lg inline-block w-full">
                   <p className="text-gray-600">
                     Rapid.ly, Inc.
                     <br />
