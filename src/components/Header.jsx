@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+const FEATURES_URL = "#";
+const PRICING_URL = "#";
+const ANALYTICS_URL = "#";
+const ABOUT_URL = "/about";
+const LOGIN_URL = "#";
+const SIGNUP_URL = "/register";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,8 +34,8 @@ const Header = () => {
           transition={{ duration: 0.7 }}
           className="flex items-center"
         >
-          <a
-            href="/"
+          <Link
+            to="/"
             className={`${
               hoverEnabled ? "md:hover:scale-110" : ""
             } transition-transform duration-700`}
@@ -37,44 +45,48 @@ const Header = () => {
               alt="rapid.ly logo"
               className="h-8"
             />
-          </a>
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#"
+          <Link
+            to={FEATURES_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
             Features
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={PRICING_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
             Pricing
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={ANALYTICS_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
             Analytics
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={ABOUT_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
-            Blog
-          </a>
+            About
+          </Link>
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
-            Login
-          </button>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
-            Sign Up Free
-          </button>
+          <Link to={LOGIN_URL}>
+            <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
+              Login
+            </button>
+          </Link>
+          <Link to={SIGNUP_URL}>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
+              Sign Up Free
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -125,37 +137,41 @@ const Header = () => {
         }`}
       >
         <nav className="flex flex-col space-y-4">
-          <a
-            href="#"
+          <Link
+            to={FEATURES_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
             Features
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={PRICING_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
             Pricing
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={ANALYTICS_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
             Analytics
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={ABOUT_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
           >
-            Blog
-          </a>
+            About
+          </Link>
           <div className="flex flex-col space-y-2 pt-2 border-t border-slate-200/70">
-            <button className="px-4 py-2 text-slate-700 border border-slate-300/70 bg-white/30 backdrop-blur-sm rounded-md hover:bg-white/50 transition-colors font-medium">
-              Login
-            </button>
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
-              Sign Up Free
-            </button>
+            <Link to={LOGIN_URL}>
+              <button className="px-4 py-2 text-slate-700 border border-slate-300/70 bg-white/30 backdrop-blur-sm rounded-md hover:bg-white/50 transition-colors font-medium">
+                Login
+              </button>
+            </Link>
+            <Link to={SIGNUP_URL}>
+              <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
+                Sign Up Free
+              </button>
+            </Link>
           </div>
         </nav>
       </div>
