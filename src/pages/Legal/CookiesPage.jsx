@@ -382,40 +382,13 @@ const CookiesPage = () => {
                 Significant changes will be announced on our website.
               </p>
             </div>
-
-            <div>
-              <h2
-                className="text-2xl font-bold text-slate-800 mb-3"
-                id="contact"
-              >
-                Contact Us
-              </h2>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-gray-700">
-                  Rapid.ly, Inc.
-                  <br />
-                  123 Market Street
-                  <br />
-                  San Francisco, CA 94105
-                  <br />
-                  <a
-                    href="mailto:privacy@rapid.ly"
-                    className="text-blue-600 hover:underline"
-                  >
-                    privacy@rapid.ly
-                  </a>
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Cards section with cleaner design */}
         <div className="grid gap-5 sm:grid-cols-3 mb-12">
           <div className="bg-white rounded-lg shadow-md p-5 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
-            <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-              <FaToggleOn className="text-blue-600 text-xl" />
-            </div>
+            <FaToggleOn className="text-blue-600 text-3xl mb-4" />
             <h3 className="font-bold text-slate-800 mb-2">
               Cookie Preferences
             </h3>
@@ -424,21 +397,24 @@ const CookiesPage = () => {
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-md p-5 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
-            <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-              <FaLock className="text-blue-600 text-xl" />
-            </div>
+            <FaLock className="text-blue-600 text-3xl mb-4" />
             <h3 className="font-bold text-slate-800 mb-2">Data Security</h3>
             <p className="text-gray-600 text-sm">
               Strong security measures protect all cookie-collected data.
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-md p-5 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
-            <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-              <FaQuestionCircle className="text-blue-600 text-xl" />
-            </div>
+            <FaQuestionCircle className="text-blue-600 text-3xl mb-4" />
             <h3 className="font-bold text-slate-800 mb-2">Need Help?</h3>
             <p className="text-gray-600 text-sm">
-              Our support team can answer any policy questions.
+              Our{" "}
+              <a
+                href="mailto:support@rapid.ly"
+                className="text-blue-600 hover:underline"
+              >
+                support team
+              </a>{" "}
+              can answer any policy questions.
             </p>
           </div>
         </div>

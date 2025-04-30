@@ -365,20 +365,20 @@ const TermsOfServicePage = () => {
                 following circumstances:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Breach of these terms</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Fraudulent activities</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Account inactivity</span>
                 </div>
-                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-start">
-                  <span className="font-bold text-blue-600 mr-2 mt-1">•</span>
+                <div className="bg-gray-50 p-3 rounded-lg text-gray-600 flex items-center">
+                  <span className="font-bold text-blue-600 mr-2">•</span>
                   <span>Legal requirements</span>
                 </div>
               </div>

@@ -13,7 +13,7 @@ const Footer = () => {
               className="h-8 mb-4 -mx-5"
             />
             <p className="text-slate-400 mt-4">
-              Simplify your as, amplify your reach.
+              Simplify your sharing, amplify your reach.
             </p>
             <div className="flex mt-4 space-x-4">
               <Link

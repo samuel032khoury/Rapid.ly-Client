@@ -1,5 +1,5 @@
-import { FaShieldAlt, FaUserShield, FaFileAlt, FaGlobe } from "react-icons/fa";
 import { useEffect } from "react";
+import { FaGlobe, FaShieldAlt, FaUserShield } from "react-icons/fa";
 
 const GDPRPage = () => {
   const lastUpdated = "April 15, 2025";
@@ -40,7 +40,7 @@ const GDPRPage = () => {
     // Clean up event listeners when component unmounts
     return () => {
       anchors.forEach((anchor) => {
-        anchor.removeEventListener("click", function (e) {});
+        anchor.removeEventListener("click", () => {});
       });
     };
   }, []);
@@ -597,42 +597,6 @@ const GDPRPage = () => {
                   changes take effect constitutes your acknowledgment of the
                   updated notice.
                 </p>
-              </div>
-            </div>
-
-            <div>
-              <h3
-                id="contact"
-                className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32"
-              >
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
-                  11
-                </span>
-                Contact Information
-              </h3>
-              <div className="pl-10 text-gray-600">
-                <p className="mb-4">
-                  If you have any questions about our GDPR compliance or how we
-                  handle your personal data, please contact us at:
-                </p>
-                <div className="bg-gray-50 w-full p-4 rounded-lg inline-block">
-                  <p>
-                    Rapid.ly, Inc.
-                    <br />
-                    Data Protection Officer
-                    <br />
-                    123 Market Street
-                    <br />
-                    San Francisco, CA 94105
-                    <br />
-                    <a
-                      href="mailto:dpo@rapid.ly"
-                      className="text-blue-600 hover:underline"
-                    >
-                      dpo@rapid.ly
-                    </a>
-                  </p>
-                </div>
               </div>
             </div>
           </div>

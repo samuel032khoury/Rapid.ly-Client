@@ -170,15 +170,6 @@ const PrivacyPage = () => {
                 </span>
                 Changes to Policy
               </a>
-              <a
-                href="#contact"
-                className="text-blue-600 hover:text-blue-800 flex items-center"
-              >
-                <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2 text-sm font-medium">
-                  10
-                </span>
-                Contact Us
-              </a>
             </div>
           </div>
 
@@ -584,43 +575,6 @@ const PrivacyPage = () => {
                   the changes take effect constitutes your acceptance of the
                   changes.
                 </p>
-              </div>
-            </div>
-
-            {/* Section 10: Contact Us */}
-            <div
-              id="contact"
-              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
-            >
-              {" "}
-              {/* Added scroll-mt-32 for offset */}
-              <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
-                <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
-                  10
-                </span>
-                Contact Us
-              </h2>
-              <div className="pl-11">
-                <p className="text-gray-600 mb-4">
-                  If you have any questions about this Privacy Policy, please
-                  contact us at:
-                </p>
-                <div className="bg-gray-50 p-4 rounded-lg inline-block w-full">
-                  <p className="text-gray-600">
-                    Rapid.ly, Inc.
-                    <br />
-                    123 Market Street
-                    <br />
-                    San Francisco, CA 94105
-                    <br />
-                    <a
-                      href="mailto:privacy@rapid.ly"
-                      className="text-blue-600 hover:underline"
-                    >
-                      privacy@rapid.ly
-                    </a>
-                  </p>
-                </div>
               </div>
             </div>
           </div>
