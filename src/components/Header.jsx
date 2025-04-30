@@ -128,7 +128,7 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation - Overlapping Menu */}
+      {/* Mobile Navigation */}
       <div
         className={`md:hidden fixed top-[64px] left-0 right-0 bg-white shadow-lg rounded-b-2xl border-b border-slate-200 px-4 overflow-hidden transition-all duration-300 ease-in-out z-40 ${
           isMenuOpen

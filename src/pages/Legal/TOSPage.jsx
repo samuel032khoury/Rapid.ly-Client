@@ -104,7 +104,6 @@ const TermsOfServicePage = () => {
         </div>
 
         <div className="mb-12">
-          {/* Section navigation - original TOC */}
           <div
             ref={tocRef}
             className="bg-white rounded-xl shadow-lg p-6 mb-6 toc-nav"
@@ -128,7 +127,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 1: Acceptance of Terms */}
           <div
             id="acceptance"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -149,7 +147,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 2: Changes to Terms */}
           <div
             id="changes"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -171,7 +168,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 3: Account Registration */}
           <div
             id="account"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -225,7 +221,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 4: Acceptable Use */}
           <div
             id="acceptable-use"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -312,7 +307,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 5: User Content */}
           <div
             id="content"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -347,7 +341,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 6: Termination */}
           <div
             id="termination"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -385,7 +378,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Section 7: Limitation of Liability */}
           <div
             id="limitation"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -409,7 +401,6 @@ const TermsOfServicePage = () => {
             </div>
           </div>
 
-          {/* Additional Sections */}
           <div
             id="disclaimer"
             className="bg-white rounded-xl shadow-lg p-8 mb-6"

@@ -1,11 +1,15 @@
+// tsconfig.json
 {
     "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "jsx": "react-jsx",
+        "strict": true,
         "baseUrl": ".",
-        "checkJs": true,
         "paths": {
             "@/*": [
-                "./src/*"
+                "src/*"
             ]
         }
     },

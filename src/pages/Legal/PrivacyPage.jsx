@@ -83,7 +83,6 @@ const PrivacyPage = () => {
         </div>
 
         <div className="mb-12">
-          {/* Section navigation */}
           <div className="bg-white rounded-xl shadow-lg p-6 mb-6 top-4 z-10">
             <h3 className="text-lg font-bold text-slate-800 mb-4">
               Quick Navigation
@@ -173,7 +172,6 @@ const PrivacyPage = () => {
             </div>
           </div>
 
-          {/* Section 1: Information We Collect */}
           <div
             id="information-we-collect"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32" // Added scroll-mt-32 for offset
@@ -282,7 +280,6 @@ const PrivacyPage = () => {
             </div>
           </div>
 
-          {/* Section 2: How We Use Your Information */}
           <div
             id="how-we-use-information"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32" // Added scroll-mt-32 for offset
@@ -341,7 +338,6 @@ const PrivacyPage = () => {
             </div>
           </div>
 
-          {/* Section 3: How We Share Your Information */}
           <div
             id="information-sharing"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32" // Added scroll-mt-32 for offset
@@ -409,9 +405,7 @@ const PrivacyPage = () => {
             </div>
           </div>
 
-          {/* Sections 4-10: Remaining policy sections */}
           <div className="space-y-6">
-            {/* Section 4: Data Security */}
             <div
               id="data-security"
               className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32" // Added scroll-mt-32 for offset
@@ -435,7 +429,6 @@ const PrivacyPage = () => {
               </div>
             </div>
 
-            {/* Section 5: Data Retention */}
             <div
               id="data-retention"
               className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32" // Added scroll-mt-32 for offset
@@ -456,13 +449,11 @@ const PrivacyPage = () => {
               </div>
             </div>
 
-            {/* Section 6: Your Rights and Choices */}
             <div
               id="your-rights"
               className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
             >
               {" "}
-              {/* Added scroll-mt-32 for offset */}
               <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   6
@@ -509,7 +500,6 @@ const PrivacyPage = () => {
               </div>
             </div>
 
-            {/* Section 7: International Data Transfers */}
             <div
               id="international-transfers"
               className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32" // Added scroll-mt-32 for offset
@@ -531,13 +521,11 @@ const PrivacyPage = () => {
               </div>
             </div>
 
-            {/* Section 8: Children's Privacy */}
             <div
               id="children"
               className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
             >
               {" "}
-              {/* Added scroll-mt-32 for offset */}
               <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   8
@@ -554,13 +542,11 @@ const PrivacyPage = () => {
               </div>
             </div>
 
-            {/* Section 9: Changes to this Privacy Policy */}
             <div
               id="changes"
               className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
             >
               {" "}
-              {/* Added scroll-mt-32 for offset */}
               <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   9

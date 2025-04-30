@@ -8,7 +8,7 @@ import URLShortenerWidget from "@/components/URLShortener";
 
 const LandingPage = () => {
   return (
-    <main className="bg-gradient-to-br from-blue-50 to-purple-100 min-h-screen ">
+    <main className="bg-gradient-to-br from-purple-50 via-blue-100 to-purple-50 min-h-screen ">
       <HeroSection />
 
       <URLShortenerWidget />

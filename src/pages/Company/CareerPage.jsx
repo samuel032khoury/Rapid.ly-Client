@@ -110,7 +110,6 @@ const CareersPage = () => {
           </p>
         </div>
 
-        {/* Image section */}
         <div className="mb-24 rounded-2xl overflow-hidden shadow-xl">
           <div className="w-full h-96 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
             <p className="text-white text-2xl font-bold">
@@ -119,7 +118,6 @@ const CareersPage = () => {
           </div>
         </div>
 
-        {/* Why join us */}
         <div className="mb-24">
           <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">
             Why Join Rapid.ly?
@@ -172,7 +170,6 @@ const CareersPage = () => {
           </div>
         </div>
 
-        {/* Our values */}
         <div className="mb-24 bg-white rounded-2xl shadow-xl p-10">
           <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">
             Our Values
@@ -194,7 +191,6 @@ const CareersPage = () => {
           </div>
         </div>
 
-        {/* Open positions */}
         <div className="mb-24">
           <h2 className="text-3xl font-bold text-slate-800 mb-10 text-center">
             Open Positions
@@ -233,7 +229,6 @@ const CareersPage = () => {
           </div>
         </div>
 
-        {/* Can't find your role */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-slate-800 mb-4">
             Don't see your perfect role?

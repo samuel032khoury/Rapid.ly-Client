@@ -107,7 +107,6 @@ const CookiesPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-50">
       <div className="max-w-4xl mx-auto pt-16 pb-20 px-6 sm:px-10">
-        {/* Header Section */}
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 font-medium text-sm mb-6">
             Cookie Policy
@@ -123,7 +122,6 @@ const CookiesPage = () => {
           <p className="text-gray-500 mt-2">Last updated: {lastUpdated}</p>
         </div>
 
-        {/* What are cookies explanation */}
         <div className="mb-10">
           <div className="flex flex-col sm:flex-row items-start sm:space-x-6 p-6 bg-white rounded-xl shadow-md">
             <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 mb-4 sm:mb-0">
@@ -143,9 +141,7 @@ const CookiesPage = () => {
           </div>
         </div>
 
-        {/* Main content with better spacing and readability */}
         <div className="mb-12 bg-white rounded-xl shadow-md p-8">
-          {/* Why We Use Cookies - More scannable */}
           <div className="mb-10">
             <h2
               className="text-2xl font-bold text-slate-800 mb-4"
@@ -193,7 +189,6 @@ const CookiesPage = () => {
             </div>
           </div>
 
-          {/* Your Choices - More concise */}
           <div className="mb-10">
             <h2
               className="text-2xl font-bold text-slate-800 mb-4"
@@ -273,7 +268,6 @@ const CookiesPage = () => {
             </div>
           </div>
 
-          {/* Cookie types with cleaner tables */}
           <div className="mb-10">
             <h2
               className="text-2xl font-bold text-slate-800 mb-4"
@@ -351,7 +345,6 @@ const CookiesPage = () => {
             </div>
           </div>
 
-          {/* Other sections with shorter paragraphs */}
           <div className="space-y-8">
             <div>
               <h2
@@ -385,7 +378,6 @@ const CookiesPage = () => {
           </div>
         </div>
 
-        {/* Cards section with cleaner design */}
         <div className="grid gap-5 sm:grid-cols-3 mb-12">
           <div className="bg-white rounded-lg shadow-md p-5 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
             <FaToggleOn className="text-blue-600 text-3xl mb-4" />
@@ -419,7 +411,6 @@ const CookiesPage = () => {
           </div>
         </div>
 
-        {/* CTA button */}
         <div className="text-center">
           <button className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
             Update Cookie Preferences

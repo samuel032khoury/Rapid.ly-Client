@@ -10,7 +10,7 @@ export default {
       },
       colors: {
         navbarColor: "#ffffff",
-        btnColor: "#3364F7",
+        primary: "#3364F7",
         linkColor: "#2a5bd7",
       },
       boxShadow: {

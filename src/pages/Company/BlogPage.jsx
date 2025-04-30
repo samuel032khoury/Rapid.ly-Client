@@ -75,7 +75,6 @@ const BlogPage = () => {
           </p>
         </div>
 
-        {/* Search and filter section */}
         <div className="bg-white rounded-xl shadow-md p-6 mb-12 flex flex-col sm:flex-row items-center justify-between">
           <div className="relative w-full sm:w-1/2 mb-4 sm:mb-0">
             <input
@@ -101,11 +100,9 @@ const BlogPage = () => {
           </div>
         </div>
 
-        {/* Featured article */}
         <div className="mb-16 bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2 h-64 md:h-auto bg-gray-200">
-              {/* Image placeholder */}
               <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500"></div>
             </div>
             <div className="md:w-1/2 p-8 md:p-12">
@@ -142,7 +139,6 @@ const BlogPage = () => {
           </div>
         </div>
 
-        {/* Blog grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <div
@@ -150,7 +146,6 @@ const BlogPage = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl hover:translate-y-[-4px]"
             >
               <div className="h-48 bg-gray-200">
-                {/* Image placeholder */}
                 <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400"></div>
               </div>
               <div className="p-6">
@@ -180,7 +175,6 @@ const BlogPage = () => {
           ))}
         </div>
 
-        {/* Newsletter signup */}
         <div className="mt-20 bg-blue-600 rounded-2xl p-10 text-center shadow-xl">
           <div className="mb-6">
             <FaRegLightbulb className="text-white text-4xl mx-auto" />

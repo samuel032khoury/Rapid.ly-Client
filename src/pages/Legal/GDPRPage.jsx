@@ -85,7 +85,6 @@ const GDPRPage = () => {
         </div>
 
         <div className="mb-12">
-          {/* Section navigation */}
           <div className="bg-white rounded-xl shadow-lg p-6 mb-6 top-4 z-10">
             <h3 className="text-lg font-bold text-slate-800 mb-4">
               Quick Navigation
@@ -148,7 +147,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Section 1: Data Controller */}
           <div
             id="data-controller"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -175,7 +173,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Section 2: Lawful Basis for Processing */}
           <div
             id="lawful-basis"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -230,7 +227,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Section 3: Your Rights Under GDPR */}
           <div
             id="data-subject-rights"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -401,7 +397,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Section 4: How to Exercise Your Rights */}
           <div
             id="exercising-rights"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -443,7 +438,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Section 5: International Data Transfers */}
           <div
             id="international-transfers"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -482,7 +476,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Section 6: Data Protection Impact Assessments */}
           <div
             id="data-protection-impact"
             className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
@@ -504,7 +497,6 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          {/* Additional Sections - Add scroll-mt-32 to these sections too */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
             <div className="mb-8">
               <h3

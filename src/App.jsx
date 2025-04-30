@@ -12,10 +12,12 @@ import PrivacyPage from "./pages/Legal/PrivacyPage";
 import TermsOfServicePage from "./pages/Legal/TOSPage";
 import GDPRPage from "./pages/Legal/GDPRPage";
 import CookiesPage from "./pages/Legal/CookiesPage";
+import GlobalToaster from "./components/GlobalToaster";
 
 function App() {
   return (
     <>
+      <GlobalToaster />
       <ScrollToTop />
       <Header />
       <Routes>
