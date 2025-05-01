@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const FEATURES_URL = "#";
-const PRICING_URL = "#";
+const FEATURES_URL = "/features";
+const PRICING_URL = "/pricing";
 const ANALYTICS_URL = "#";
 const ABOUT_URL = "/about";
 const LOGIN_URL = "/login";

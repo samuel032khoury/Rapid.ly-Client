@@ -1,7 +1,6 @@
 import AnalyticsGraph from "@/components/AnalyticsGraph";
 import { useStoreContext } from "@/hook/StoreContext";
 import { analyticsGraphData } from "@/mock/analyticsGraphData";
-import React from "react";
 
 const DashboardPage = () => {
   const { token } = useStoreContext();

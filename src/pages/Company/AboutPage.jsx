@@ -1,4 +1,5 @@
 import { FaBolt, FaShieldAlt, FaChartPie, FaRocket } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   return (
@@ -83,7 +84,7 @@ const AboutPage = () => {
 
         <div className="mt-20 text-center">
           <div className="inline-block px-8 py-5 rounded-full bg-blue-600 text-white font-bold text-lg cursor-pointer hover:bg-blue-700 transition-colors shadow-lg">
-            Start using Rapid.ly today
+            <Link to="/register">Start using Rapid.ly today</Link>
           </div>
         </div>
       </div>
