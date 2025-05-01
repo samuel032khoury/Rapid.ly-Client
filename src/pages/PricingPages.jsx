@@ -258,7 +258,7 @@ const PricingPage = () => {
                 Contact Sales
               </button>
             </div>
-            <div className="lg:w-1/2 bg-gradient-to-br from-blue-500 to-purple-600 p-10 lg:p-16 flex flex-col justify-center text-white">
+            <div className="lg:w-1/2 bg-gradient-to-br from-blue-500 to-purple-600 p-10 lg:p-16 flex flex-col justify-center text-white rounded-b-xl lg:rounded-l-none lg:rounded-r-xl">
               <FaUserFriends className="text-white text-4xl mb-6 opacity-80" />
               <h3 className="text-2xl font-bold mb-4">Dedicated Support</h3>
               <p className="text-blue-100 mb-6">
