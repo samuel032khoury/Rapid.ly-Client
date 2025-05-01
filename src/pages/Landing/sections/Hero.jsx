@@ -1,5 +1,6 @@
 import Browser from "@/components/Browser";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -36,7 +37,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors"
                 >
-                  Get Started — It's Free
+                  <Link to="/register">Get Started — It's Free</Link>
                 </motion.button>
                 <motion.button
                   initial={{ opacity: 0, y: 30 }}

@@ -8,21 +8,12 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 
-const registerSchema = z.object({
-  username: z
-    .string()
-    .min(3, "Username must be at least 3 characters")
-    .max(30, "Username cannot exceed 30 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
-    .regex(/[0-9]/, "Password must contain at least one number"),
+const loginSchema = z.object({
+  username: z.string().min(1, "Username is required"),
+  password: z.string().min(1, "Password is required"),
 });
 
-const RegisterPage = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,31 +27,29 @@ const RegisterPage = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(registerSchema),
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       username: "",
-      email: "",
       password: "",
     },
-    mode: "onTouched",
+    mode: "onSubmit",
   });
 
-  const registerHandler = async (data) => {
+  const loginHandler = async (data) => {
     toast.dismiss();
 
     setIsLoading(true);
     try {
-      const { data: response } = await api.post(
-        "/api/auth/public/register",
-        data
-      );
+      const { data: response } = await api.post("/api/auth/public/login", data);
+      console.log(response.token);
+      localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token));
+      toast.success("Login successful");
       reset();
-      navigate("/login");
-      toast.success("Registration successful");
+      navigate("/");
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error("Login error:", error);
       toast.error(
-        error?.response?.data?.message ?? "An error occurred. Please try again."
+        error?.response?.data?.message ?? "Invalid username or password"
       );
     } finally {
       setIsLoading(false);
@@ -105,22 +94,22 @@ const RegisterPage = () => {
           <div className="p-8 sm:p-10 relative z-10">
             <div className="text-center mb-8">
               <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 font-medium text-sm mb-3">
-                Create Account
+                Welcome Back
               </span>
               <h1 className="text-3xl font-bold text-slate-800 mb-2">
-                Join <span className="text-blue-600">Rapid.ly</span>
+                Login to <span className="text-blue-600">Rapid.ly</span>
               </h1>
               <p className="text-slate-600">
-                Start shortening URLs and tracking analytics
+                Access your URL shortener dashboard
               </p>
             </div>
 
             <motion.form
-              onSubmit={handleSubmit(registerHandler)}
+              onSubmit={handleSubmit(loginHandler)}
               variants={formAnimation}
               initial="hidden"
               animate="visible"
-              className="space-y-2"
+              className="space-y-4"
             >
               <motion.div variants={itemAnimation}>
                 <FormTextField
@@ -136,26 +125,23 @@ const RegisterPage = () => {
 
               <motion.div variants={itemAnimation}>
                 <FormTextField
-                  label="Email"
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  register={register}
-                  errors={errors}
-                  icon="mail"
-                />
-              </motion.div>
-
-              <motion.div variants={itemAnimation}>
-                <FormTextField
                   label="Password"
                   id="password"
                   type="password"
-                  placeholder="Create a secure password"
+                  placeholder="Enter your password"
                   register={register}
                   errors={errors}
                   icon="lock"
                 />
+              </motion.div>
+
+              <motion.div variants={itemAnimation} className="flex justify-end">
+                <Link
+                  to="/reset-password"
+                  className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  Forgot password?
+                </Link>
               </motion.div>
 
               <motion.div variants={itemAnimation} className="pt-2">
@@ -187,10 +173,10 @@ const RegisterPage = () => {
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                           ></path>
                         </svg>
-                        Creating account...
+                        Logging in...
                       </>
                     ) : (
-                      "Create Account"
+                      "Login"
                     )}
                   </span>
                 </button>
@@ -198,12 +184,12 @@ const RegisterPage = () => {
 
               <motion.div variants={itemAnimation} className="text-center mt-6">
                 <p className="text-slate-600 flex flex-wrap justify-center gap-1">
-                  Already have an account?
+                  Don't have an account yet?
                   <Link
-                    to="/login"
+                    to="/register"
                     className="font-medium text-blue-600 hover:text-blue-800 transition-colors"
                   >
-                    Sign in
+                    Sign up
                   </Link>
                 </p>
               </motion.div>
@@ -212,7 +198,7 @@ const RegisterPage = () => {
         </div>
 
         <div className="text-center mt-6 text-sm text-slate-500">
-          By signing up, you agree to our{" "}
+          By logging in, you agree to our{" "}
           <Link
             to="/terms-of-service"
             className="text-blue-600 hover:underline"
@@ -229,4 +215,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

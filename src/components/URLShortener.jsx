@@ -25,7 +25,7 @@ const URLShortenerWidget = () => {
             </button>
           </div>
           <div className="mt-3 pt-3 mb-0 pb-0 border-t border-purple-100/80">
-            <p className="text-slate-300 text-sm">
+            <p className="text-gray-400 text-sm">
               Your links will expire after 30 days. Create an account for
               permanent links.
             </p>

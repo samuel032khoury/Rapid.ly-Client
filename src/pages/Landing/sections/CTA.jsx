@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -18,9 +19,11 @@ const CTASection = () => {
             Join thousands of marketers, content creators, and businesses who
             trust Rapid.ly for their link management needs.
           </p>
-          <button className="px-8 py-4 bg-white text-blue-600 hover:bg-blue-50 rounded-lg font-bold text-lg transition-colors shadow-lg">
-            Get Started For Free
-          </button>
+          <Link to={"/register"}>
+            <button className="px-8 py-4 bg-white text-blue-600 hover:bg-blue-50 rounded-lg font-bold text-lg transition-colors shadow-lg">
+              Get Started For Free
+            </button>
+          </Link>
           <p className="text-blue-100 mt-4">
             No credit card required • Free plan available
           </p>

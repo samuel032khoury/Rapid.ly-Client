@@ -144,6 +144,42 @@ const GDPRPage = () => {
                 </span>
                 Impact Assessments
               </a>
+              <a
+                href="#personal-data-breaches"
+                className="text-blue-600 hover:text-blue-800 flex items-center"
+              >
+                <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2 text-sm font-medium">
+                  7
+                </span>
+                Personal Data Breaches
+              </a>
+              <a
+                href="#data-protection-officer"
+                className="text-blue-600 hover:text-blue-800 flex items-center"
+              >
+                <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2 text-sm font-medium">
+                  8
+                </span>
+                Data Protection Officer
+              </a>
+              <a
+                href="#complaints"
+                className="text-blue-600 hover:text-blue-800 flex items-center"
+              >
+                <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2 text-sm font-medium">
+                  9
+                </span>
+                Complaints
+              </a>
+              <a
+                href="#changes"
+                className="text-blue-600 hover:text-blue-800 flex items-center"
+              >
+                <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-2 text-sm font-medium">
+                  10
+                </span>
+                Changes to Policy
+              </a>
             </div>
           </div>
 
@@ -497,18 +533,18 @@ const GDPRPage = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
-            <div className="mb-8">
-              <h3
-                id="personal-data-breaches"
-                className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32"
-              >
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+          <div className="space-y-6">
+            <div
+              id="personal-data-breaches"
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
+            >
+              <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   7
                 </span>
                 Personal Data Breaches
-              </h3>
-              <div className="pl-10 text-gray-600">
+              </h2>
+              <div className="pl-11 text-gray-600">
                 <p className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
                   In the event of a personal data breach that poses a risk to
                   your rights and freedoms, we will notify the relevant
@@ -521,17 +557,17 @@ const GDPRPage = () => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <h3
-                id="data-protection-officer"
-                className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32"
-              >
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+            <div
+              id="data-protection-officer"
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
+            >
+              <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   8
                 </span>
                 Data Protection Officer
-              </h3>
-              <div className="pl-10 text-gray-600">
+              </h2>
+              <div className="pl-11 text-gray-600">
                 <p className="bg-gray-50 p-4 rounded-lg">
                   We have appointed a Data Protection Officer who is responsible
                   for overseeing our data protection strategy and ensuring
@@ -549,17 +585,17 @@ const GDPRPage = () => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <h3
-                id="complaints"
-                className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32"
-              >
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+            <div
+              id="complaints"
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
+            >
+              <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   9
                 </span>
                 Complaints to Supervisory Authority
-              </h3>
-              <div className="pl-10 text-gray-600">
+              </h2>
+              <div className="pl-11 text-gray-600">
                 <p className="bg-gray-50 p-4 rounded-lg">
                   If you are not satisfied with our response to your request or
                   believe our processing of your personal data does not comply
@@ -571,17 +607,17 @@ const GDPRPage = () => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <h3
-                id="changes"
-                className="text-xl font-bold text-slate-800 mb-4 flex items-center scroll-mt-32"
-              >
-                <span className="w-7 h-7 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-base font-bold">
+            <div
+              id="changes"
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
+            >
+              <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
                   10
                 </span>
                 Changes to this GDPR Notice
-              </h3>
-              <div className="pl-10 text-gray-600">
+              </h2>
+              <div className="pl-11 text-gray-600">
                 <p className="bg-gray-50 p-4 rounded-lg">
                   We may update this GDPR notice from time to time. If we make
                   material changes, we will notify you through our services or
@@ -592,41 +628,43 @@ const GDPRPage = () => {
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
-              <FaUserShield className="text-blue-600 text-3xl mr-4 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  Your Data Control Panel
-                </h3>
-                <p className="text-gray-600">
-                  Access, download, or delete your personal data directly from
-                  your account settings.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
-              <FaGlobe className="text-blue-600 text-3xl mr-4 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  EU Representatives
-                </h3>
-                <p className="text-gray-600">
-                  Our EU representative can be contacted at eu-rep@rapid.ly
-                </p>
-              </div>
-            </div>
+        <div className="grid gap-6 sm:grid-cols-2 mb-12">
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+            <FaUserShield className="text-blue-600 text-3xl mb-4" />
+            <h3 className="text-xl font-bold text-slate-800 mb-3">
+              Your Data Control Panel
+            </h3>
+            <p className="text-gray-600">
+              Access, download, or delete your personal data directly from your
+              account settings.
+            </p>
           </div>
+          <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+            <FaGlobe className="text-blue-600 text-3xl mb-4" />
+            <h3 className="text-xl font-bold text-slate-800 mb-3">
+              EU Representatives
+            </h3>
+            <p className="text-gray-600 text-pretty">
+              Our EU representative can be contacted at{" "}
+              <a
+                href="mailto:eu-rep@rapid.ly"
+                className="text-blue-600 hover:underline"
+              >
+                eu-rep@rapid.ly
+              </a>
+            </p>
+          </div>
+        </div>
 
-          <div className="mt-12 text-center">
-            <a
-              href="#"
-              className="inline-block px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-colors shadow-lg"
-            >
-              Manage Your Privacy Settings
-            </a>
-          </div>
+        <div className="mt-12 text-center">
+          <a
+            href="#"
+            className="inline-block px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-colors shadow-lg"
+          >
+            Manage Your Privacy Settings
+          </a>
         </div>
       </div>
     </div>

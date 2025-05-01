@@ -6,7 +6,7 @@ const FEATURES_URL = "#";
 const PRICING_URL = "#";
 const ANALYTICS_URL = "#";
 const ABOUT_URL = "/about";
-const LOGIN_URL = "#";
+const LOGIN_URL = "/login";
 const SIGNUP_URL = "/register";
 
 const Header = () => {
