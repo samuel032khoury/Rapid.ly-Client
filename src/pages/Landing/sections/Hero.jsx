@@ -20,7 +20,7 @@ const HeroSection = () => {
               <span className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
                 Simplify Your Links
               </span>
-              <h1 className="font-bold text-slate-900 text-4xl lg:text-5xl leading-tight mb-6">
+              <h1 className="font-bold text-slate-900 text-4xl lg:text-5xl leading-tight mb-6 z-0">
                 Transform Long URLs into{" "}
                 <span className="text-blue-500">Powerful</span> Short Links
               </h1>

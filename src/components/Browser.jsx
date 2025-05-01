@@ -193,7 +193,7 @@ const Browser = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8 xl:mt-5 bg-gradient-to-t from-blue-300/50 via-blue-200/50 to-blue-100/50 rounded-lg shadow-sm p-3 border border-blue-400">
+            <div className="hidden md:block mt-8 xl:mt-5 bg-gradient-to-t from-blue-300/50 via-blue-200/50 to-blue-100/50 rounded-lg shadow-sm p-3 border border-blue-400">
               <div className="flex justify-center space-x-6 text-xs text-center">
                 <div>
                   <div className="text-2xl font-bold text-slate-700">1.2M+</div>
