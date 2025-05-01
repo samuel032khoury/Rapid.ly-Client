@@ -197,7 +197,7 @@ const CareersPage = () => {
           </h2>
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="grid gap-[1px] bg-gray-200">
-              {openPositions.map((position, idx) => (
+              {openPositions.map((position) => (
                 <div
                   key={position.id}
                   className="bg-white p-6 hover:bg-blue-50 transition-colors"

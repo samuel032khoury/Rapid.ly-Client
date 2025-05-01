@@ -1,5 +1,6 @@
 import api from "@/api/api";
 import FormTextField from "@/components/FormTextField";
+import { useStoreContext } from "@/hook/StoreContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -16,6 +17,7 @@ const loginSchema = z.object({
 const LoginPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const { setToken } = useStoreContext();
 
   useEffect(() => {
     toast.dismiss();
@@ -41,15 +43,15 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       const { data: response } = await api.post("/api/auth/public/login", data);
-      console.log(response.token);
+      setToken(response.token);
       localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token));
       toast.success("Login successful");
       reset();
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
       toast.error(
-        error?.response?.data?.message ?? "Invalid username or password"
+        error?.response?.data?.message ?? "An Error Occurred. Please try again."
       );
     } finally {
       setIsLoading(false);

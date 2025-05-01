@@ -77,16 +77,12 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Link to={LOGIN_URL}>
-            <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
-              Login
-            </button>
-          </Link>
-          <Link to={SIGNUP_URL}>
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
-              Sign Up Free
-            </button>
-          </Link>
+          <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
+            <Link to={LOGIN_URL}>Login</Link>
+          </button>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
+            <Link to={SIGNUP_URL}>Sign Up Free</Link>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -140,38 +136,44 @@ const Header = () => {
           <Link
             to={FEATURES_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             Features
           </Link>
           <Link
             to={PRICING_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             Pricing
           </Link>
           <Link
             to={ANALYTICS_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             Analytics
           </Link>
           <Link
             to={ABOUT_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             About
           </Link>
           <div className="flex flex-col space-y-2 pt-2 border-t border-slate-200/70">
-            <Link to={LOGIN_URL}>
-              <button className="px-4 py-2 text-slate-700 border border-slate-300/70 bg-white/30 backdrop-blur-sm rounded-md hover:bg-white/50 transition-colors font-medium">
-                Login
-              </button>
-            </Link>
-            <Link to={SIGNUP_URL}>
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
-                Sign Up Free
-              </button>
-            </Link>
+            <button
+              className="px-4 py-2 text-slate-700 border border-slate-300/70 bg-white/30 backdrop-blur-sm rounded-md hover:bg-white/50 transition-colors font-medium"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Link to={LOGIN_URL}>Login</Link>
+            </button>
+            <button
+              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Link to={SIGNUP_URL}>Sign Up Free</Link>
+            </button>
           </div>
         </nav>
       </div>
