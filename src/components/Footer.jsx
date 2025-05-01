@@ -56,12 +56,18 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="#" className="hover:text-white transition-colors">
+                <Link
+                  to="/developer/api"
+                  className="hover:text-white transition-colors"
+                >
                   API
                 </Link>
               </li>
               <li>
-                <Link to="#" className="hover:text-white transition-colors">
+                <Link
+                  to="/developer/integration"
+                  className="hover:text-white transition-colors"
+                >
                   Integration
                 </Link>
               </li>

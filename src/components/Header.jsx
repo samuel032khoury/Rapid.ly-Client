@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const FEATURES_URL = "/features";
 const PRICING_URL = "/pricing";
-const ANALYTICS_URL = "#";
+const ANALYTICS_URL = "/analytics";
 const ABOUT_URL = "/about";
 const LOGIN_URL = "/login";
 const SIGNUP_URL = "/register";

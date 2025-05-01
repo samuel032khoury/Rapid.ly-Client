@@ -18,6 +18,9 @@ import GlobalToaster from "./components/GlobalToaster";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
 import FeaturesPage from "./pages/FeaturesPage";
 import PricingPage from "./pages/PricingPages";
+import APIPage from "./pages/APIPage";
+import IntegrationsPage from "./pages/IntegrationPage";
+import AnalyticsPage from "./pages/AnalyticsPage";
 
 function App() {
   return (
@@ -33,6 +36,9 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/developer/api" element={<APIPage />} />
+        <Route path="/developer/integration" element={<IntegrationsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/careers" element={<CareersPage />} />

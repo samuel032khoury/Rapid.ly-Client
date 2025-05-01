@@ -7,6 +7,7 @@ import {
   FaBuilding,
   FaUserFriends,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PricingPage = () => {
   const [annual, setAnnual] = useState(true);
@@ -193,7 +194,8 @@ const PricingPage = () => {
                     ${annual ? tier.annualPrice : tier.monthlyPrice}
                   </span>
                   <span className="text-gray-500">
-                    /month{annual ? ", billed annually" : ""}
+                    /month
+                    {annual && tier.annualPrice ? ", billed annually" : ""}
                   </span>
                 </div>
                 <button
@@ -432,18 +434,18 @@ const PricingPage = () => {
             Ready to get started?
           </h2>
           <p className="text-blue-100 max-w-2xl mx-auto mb-8">
-            Sign up now and get a 30-day free trial of our Pro plan. No credit
+            Sign up now and get a 14-day free trial of our Pro plan. No credit
             card required.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="#"
+            <Link
+              to="/register"
               className="bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors"
             >
               Start Your Free Trial
-            </a>
+            </Link>
             <a
-              href="#"
+              href="mailto:support@rapid.ly"
               className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-colors"
             >
               Schedule a Demo
