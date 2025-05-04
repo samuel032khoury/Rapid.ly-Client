@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./helper/ScrollToTop";
 import BlogPage from "./pages/Company/BlogPage";
 import CareersPage from "./pages/Company/CareerPage";
 import ContactPage from "./pages/Company/ContactPage";

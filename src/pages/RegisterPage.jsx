@@ -1,5 +1,5 @@
 import api from "@/api/api";
-import FormTextField from "@/components/FormTextField";
+import AuthFormTextField from "@/components/AuthFormTextField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -123,7 +123,7 @@ const RegisterPage = () => {
               className="space-y-2"
             >
               <motion.div variants={itemAnimation}>
-                <FormTextField
+                <AuthFormTextField
                   label="Username"
                   id="username"
                   type="text"
@@ -135,7 +135,7 @@ const RegisterPage = () => {
               </motion.div>
 
               <motion.div variants={itemAnimation}>
-                <FormTextField
+                <AuthFormTextField
                   label="Email"
                   id="email"
                   type="email"
@@ -147,7 +147,7 @@ const RegisterPage = () => {
               </motion.div>
 
               <motion.div variants={itemAnimation}>
-                <FormTextField
+                <AuthFormTextField
                   label="Password"
                   id="password"
                   type="password"

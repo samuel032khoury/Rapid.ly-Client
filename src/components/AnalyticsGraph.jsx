@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import {
   BarElement,
   CategoryScale,
@@ -7,10 +5,12 @@ import {
   Filler,
   Legend,
   LinearScale,
-  Tooltip,
   TimeScale,
+  Tooltip,
 } from "chart.js";
-import "chartjs-adapter-date-fns"; // You'll need to install this package
+import "chartjs-adapter-date-fns";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
@@ -29,39 +29,33 @@ const AnalyticsGraph = ({ graphData }) => {
     typeof window !== "undefined" ? window.innerWidth : 1200
   );
 
-  // Add window resize listener
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Filter data based on selected time range
   const getFilteredData = () => {
     if (!graphData || graphData.length === 0) return [];
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Set time to midnight for accurate comparison
+    today.setHours(0, 0, 0, 0);
     let startDate;
 
     switch (timeRange) {
       case "day":
-        // Last 24 hours
         startDate = new Date(today);
         startDate.setDate(today.getDate() - 1);
         break;
       case "week":
-        // Last 7 days
         startDate = new Date(today);
         startDate.setDate(today.getDate() - 7);
         break;
       case "month":
-        // Last 30 days
         startDate = new Date(today);
         startDate.setDate(today.getDate() - 30);
         break;
       case "year":
-        // Last 365 days
         startDate = new Date(today);
         startDate.setFullYear(today.getFullYear() - 1);
         break;
@@ -70,22 +64,18 @@ const AnalyticsGraph = ({ graphData }) => {
         startDate.setDate(today.getDate() - 7);
     }
 
-    // Filter data based on date
     return graphData.filter((item) => {
       const itemDate = new Date(item.clickDate);
       return itemDate >= startDate && itemDate <= today;
     });
   };
 
-  // Aggregate data based on time range and screen size
   const aggregateData = (filteredData) => {
     if (filteredData.length === 0) return { labels: [], values: [] };
 
-    // Determine if we need to aggregate based on screen size and time range
     const isSmallScreen = windowWidth < 768;
     const isMediumScreen = windowWidth >= 768 && windowWidth < 1024;
 
-    // For small/medium screens with longer time periods, aggregate data
     if (
       (isSmallScreen && (timeRange === "month" || timeRange === "year")) ||
       (isMediumScreen && timeRange === "year")
@@ -97,10 +87,8 @@ const AnalyticsGraph = ({ graphData }) => {
         let key;
 
         if (timeRange === "year") {
-          // Group by month for year view
           key = `${date.getFullYear()}-${date.getMonth() + 1}`;
         } else if (timeRange === "month" && isSmallScreen) {
-          // Group by week for month view on small screens
           const weekNumber = Math.ceil(date.getDate() / 7);
           key = `Week ${weekNumber}`;
         }
@@ -140,11 +128,9 @@ const AnalyticsGraph = ({ graphData }) => {
       };
     }
 
-    // No aggregation needed
     return {
       labels: filteredData.map((item) => {
         const date = new Date(item.clickDate);
-        // Format date based on time range
         if (timeRange === "day") {
           return date.toLocaleTimeString(undefined, {
             hour: "2-digit",
@@ -164,11 +150,10 @@ const AnalyticsGraph = ({ graphData }) => {
   const filteredData = getFilteredData();
   const { labels, values } = aggregateData(filteredData);
 
-  // Determine optimal bar thickness based on data points and screen width
   const getBarThickness = () => {
     if (labels.length === 0) return 24;
 
-    const availableWidth = windowWidth - 100; // Account for padding
+    const availableWidth = windowWidth - 100;
     const idealBarWidth = Math.min(
       24,
       Math.max(12, availableWidth / labels.length / 2)
@@ -256,7 +241,7 @@ const AnalyticsGraph = ({ graphData }) => {
           },
           color: "#64748b",
           padding: 10,
-          maxTicksLimit: 8, // Limit Y-axis ticks on small screens
+          maxTicksLimit: 8,
         },
         grid: {
           color: "rgba(203, 213, 225, 0.4)",
@@ -266,7 +251,7 @@ const AnalyticsGraph = ({ graphData }) => {
           display: false,
         },
         title: {
-          display: windowWidth > 480, // Hide on very small screens
+          display: windowWidth > 480,
           text: "Number Of Clicks",
           font: {
             family: "'Inter', sans-serif",
@@ -284,14 +269,14 @@ const AnalyticsGraph = ({ graphData }) => {
         ticks: {
           font: {
             family: "'Inter', sans-serif",
-            size: windowWidth < 480 ? 10 : 12, // Smaller font on mobile
+            size: windowWidth < 480 ? 10 : 12,
           },
           color: "#64748b",
           padding: 10,
-          maxRotation: windowWidth < 768 ? 45 : 0, // Rotate labels on small screens
+          maxRotation: windowWidth < 768 ? 45 : 0,
           autoSkip: true,
           autoSkipPadding: 15,
-          maxTicksLimit: windowWidth < 480 ? 6 : windowWidth < 768 ? 8 : 12, // Fewer ticks on smaller screens
+          maxTicksLimit: windowWidth < 480 ? 6 : windowWidth < 768 ? 8 : 12,
         },
         grid: {
           display: false,
@@ -301,7 +286,7 @@ const AnalyticsGraph = ({ graphData }) => {
           display: false,
         },
         title: {
-          display: windowWidth > 480, // Hide on very small screens
+          display: windowWidth > 480,
           text: "Date",
           font: {
             family: "'Inter', sans-serif",

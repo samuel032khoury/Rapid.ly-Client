@@ -179,7 +179,6 @@ const IntegrationsPage = () => {
     },
   ];
 
-  // Filter integrations based on search term and active category
   const filteredIntegrations = integrations.filter((integration) => {
     const matchesSearch =
       integration.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -189,7 +188,6 @@ const IntegrationsPage = () => {
     return matchesSearch && matchesCategory;
   });
 
-  // Get featured integrations
   const featuredIntegrations = integrations.filter(
     (integration) => integration.featured
   );

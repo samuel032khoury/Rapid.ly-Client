@@ -4,40 +4,32 @@ import { FaEyeSlash, FaLock, FaUserShield } from "react-icons/fa";
 const PrivacyPage = () => {
   const lastUpdated = "April 15, 2025";
 
-  // Add smooth scrolling with offset when links are clicked
   useEffect(() => {
-    // Select all anchor links that point to a section on the page
     const anchors = document.querySelectorAll('a[href^="#"]');
 
-    // Add click event listener to each anchor
     anchors.forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Get the target element
         const targetId = this.getAttribute("href").substring(1);
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-          // Calculate position with offset (adjust the 100 value as needed)
           const offsetTop =
             targetElement.getBoundingClientRect().top +
             window.pageYOffset -
             100;
 
-          // Scroll smoothly to the target with offset
           window.scrollTo({
             top: offsetTop,
             behavior: "smooth",
           });
 
-          // Update the URL without causing a jump (optional)
           history.pushState(null, null, `#${targetId}`);
         }
       });
     });
 
-    // Clean up event listeners when component unmounts
     return () => {
       anchors.forEach((anchor) => {
         anchor.removeEventListener("click", () => {});
@@ -174,7 +166,7 @@ const PrivacyPage = () => {
 
           <div
             id="information-we-collect"
-            className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32" // Added scroll-mt-32 for offset
+            className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
           >
             <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
               <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
@@ -282,7 +274,7 @@ const PrivacyPage = () => {
 
           <div
             id="how-we-use-information"
-            className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32" // Added scroll-mt-32 for offset
+            className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
           >
             <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
               <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
@@ -340,7 +332,7 @@ const PrivacyPage = () => {
 
           <div
             id="information-sharing"
-            className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32" // Added scroll-mt-32 for offset
+            className="bg-white rounded-xl shadow-lg p-8 mb-6 scroll-mt-32"
           >
             <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
               <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
@@ -408,7 +400,7 @@ const PrivacyPage = () => {
           <div className="space-y-6">
             <div
               id="data-security"
-              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32" // Added scroll-mt-32 for offset
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
             >
               <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
@@ -431,7 +423,7 @@ const PrivacyPage = () => {
 
             <div
               id="data-retention"
-              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32" // Added scroll-mt-32 for offset
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
             >
               <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">
@@ -502,7 +494,7 @@ const PrivacyPage = () => {
 
             <div
               id="international-transfers"
-              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32" // Added scroll-mt-32 for offset
+              className="bg-white rounded-xl shadow-lg p-8 scroll-mt-32"
             >
               <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 text-lg font-bold">

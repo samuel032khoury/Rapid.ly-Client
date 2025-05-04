@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
-  FaUser,
   FaEnvelope,
-  FaLock,
-  FaShieldAlt,
   FaEye,
   FaEyeSlash,
+  FaLock,
+  FaShieldAlt,
+  FaUser,
 } from "react-icons/fa";
 
 const icons = {

@@ -12,7 +12,7 @@ import { useState } from "react";
 const APIPage = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Sample code snippets
+  //  Sample code snippets
   const codeSnippets = {
     curl: `curl -X POST https://api.rapid.ly/v1/links \\
   -H "Content-Type: application/json" \\

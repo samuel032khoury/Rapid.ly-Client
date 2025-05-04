@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import React from "react";
 
 const Browser = () => {
   const longUrl =
@@ -49,9 +48,9 @@ const Browser = () => {
                   width: [
                     `${longUrl.length}ch`, // type full long
                     `${longUrl.length}ch`, // hold
-                    `0ch`,
-                    `0ch`,
-                    `0ch`,
+                    `0ch`, // start hiding
+                    `0ch`, // hold
+                    `0ch`, // hold
                   ],
                 }}
                 transition={{
@@ -76,8 +75,8 @@ const Browser = () => {
                 animate={{
                   width: [
                     `0ch`, // start hidden
-                    `0ch`, // stay hidden while long types
-                    `0ch`, // stay hidden while long holds
+                    `0ch`, // hold
+                    `0ch`, // hold
                     `${shortUrl.length}ch`, // appear
                     `${shortUrl.length}ch`, // hold
                   ],
@@ -99,7 +98,6 @@ const Browser = () => {
         </div>
 
         <div className="p-4 h-full bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-          {/* Logo that starts centered and animates up out of view */}
           <motion.div
             id="logo"
             className="absolute w-full left-0 flex flex-col items-center justify-center"

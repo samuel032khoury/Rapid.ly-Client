@@ -9,11 +9,9 @@ import {
 const TermsOfServicePage = () => {
   const lastUpdated = "April 15, 2025";
 
-  // Create ref for TOC element
   const tocRef = useRef(null);
 
   useEffect(() => {
-    // Function to handle smooth scrolling for anchor links
     const setupSmoothScrolling = () => {
       const anchors = document.querySelectorAll('a[href^="#"]');
 
@@ -35,7 +33,6 @@ const TermsOfServicePage = () => {
               behavior: "smooth",
             });
 
-            // Update URL hash without scrolling
             history.pushState(null, null, `#${targetId}`);
           }
         });
@@ -50,8 +47,7 @@ const TermsOfServicePage = () => {
         anchor.removeEventListener("click", () => {});
       });
     };
-  }, []); // Removed showFloatingMenu dependency
-
+  }, []);
   const sections = [
     { id: "acceptance", title: "Acceptance of Terms", number: "1" },
     { id: "changes", title: "Changes to Terms", number: "2" },

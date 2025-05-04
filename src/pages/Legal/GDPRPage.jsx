@@ -4,40 +4,32 @@ import { FaGlobe, FaShieldAlt, FaUserShield } from "react-icons/fa";
 const GDPRPage = () => {
   const lastUpdated = "April 15, 2025";
 
-  // Add smooth scrolling with offset when links are clicked
   useEffect(() => {
-    // Select all anchor links that point to a section on the page
     const anchors = document.querySelectorAll('a[href^="#"]');
 
-    // Add click event listener to each anchor
     anchors.forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Get the target element
         const targetId = this.getAttribute("href").substring(1);
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-          // Calculate position with offset (adjust the 100 value as needed)
           const offsetTop =
             targetElement.getBoundingClientRect().top +
             window.pageYOffset -
             100;
 
-          // Scroll smoothly to the target with offset
           window.scrollTo({
             top: offsetTop,
             behavior: "smooth",
           });
 
-          // Update the URL without causing a jump (optional)
           history.pushState(null, null, `#${targetId}`);
         }
       });
     });
 
-    // Clean up event listeners when component unmounts
     return () => {
       anchors.forEach((anchor) => {
         anchor.removeEventListener("click", () => {});

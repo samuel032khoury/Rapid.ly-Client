@@ -4,7 +4,7 @@ import StatsSection from "./sections/Stats";
 import HowItWorksSection from "./sections/HowItWorks";
 import TestimonialSection from "./sections/Testimonial";
 import CTASection from "./sections/CTA";
-import URLShortenerWidget from "@/components/URLShortener";
+import { URLShortenerWidget } from "@/components/URLShortener";
 
 const LandingPage = () => {
   return (
