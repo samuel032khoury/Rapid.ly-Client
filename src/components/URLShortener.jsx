@@ -85,7 +85,7 @@ export const URLShortenerModal = ({ open, handleClose, refetch }) => {
     };
   }, [open, handleClose]);
 
-  const onSubmit = async (data) => {
+  const shortenNewUrl = async (data) => {
     setIsLoading(true);
     try {
       const { data: res } = await api.post("/api/urls/shorten", data, {
@@ -97,13 +97,14 @@ export const URLShortenerModal = ({ open, handleClose, refetch }) => {
       });
       const shortUrl = `${import.meta.env.VITE_REACT_SUBDOMAIN}/${
         res.shortUrl
-      }/}`;
+      }`;
       navigator.clipboard.writeText(shortUrl);
       toast.success("Short URL created and copied to clipboard!", {
         position: "bottom-right",
         className: "mb-8",
         duration: 3000,
       });
+      await refetch();
       reset();
       handleClose();
     } catch (error) {
@@ -142,7 +143,7 @@ export const URLShortenerModal = ({ open, handleClose, refetch }) => {
             </button>
           </Tooltip>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="p-6">
+          <form onSubmit={handleSubmit(shortenNewUrl)} className="p-6">
             <div className="text-center mb-6">
               <h1 className="font-bold text-2xl text-slate-800">
                 Create Short URL

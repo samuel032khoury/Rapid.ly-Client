@@ -9,7 +9,6 @@ import {
   Tooltip,
 } from "chart.js";
 import "chartjs-adapter-date-fns";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
@@ -315,15 +314,8 @@ const AnalyticsGraph = ({ graphData }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="w-full h-full bg-white/80 backdrop-blur-lg rounded-xl overflow-hidden border border-white/40 shadow-lg relative"
-    >
+    <div className="w-full h-full overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500"></div>
-      <div className="absolute -left-12 -top-12 w-24 h-24 rounded-full bg-blue-200 opacity-40 blur-xl"></div>
-      <div className="absolute -right-12 -bottom-12 w-32 h-32 rounded-full bg-purple-200 opacity-40 blur-xl"></div>
 
       <div className="p-6 relative z-10 h-full flex flex-col">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
@@ -387,7 +379,7 @@ const AnalyticsGraph = ({ graphData }) => {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
