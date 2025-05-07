@@ -63,10 +63,12 @@ const AnalyticsGraph = ({ graphData }) => {
         startDate.setDate(today.getDate() - 7);
     }
 
-    return graphData.filter((item) => {
-      const itemDate = new Date(item.clickDate);
-      return itemDate >= startDate && itemDate <= today;
-    });
+    return graphData
+      .filter((item) => {
+        const itemDate = new Date(item.clickDate);
+        return itemDate >= startDate && itemDate <= today;
+      })
+      .sort((a, b) => new Date(a.clickDate) - new Date(b.clickDate));
   };
 
   const aggregateData = (filteredData) => {

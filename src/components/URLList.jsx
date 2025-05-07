@@ -8,6 +8,7 @@ import {
   FaTimes,
   FaTrash,
   FaPlus,
+  FaChartBar,
 } from "react-icons/fa";
 
 const DeleteModal = ({ isOpen, onClose, onConfirm, itemName }) => {
@@ -48,14 +49,14 @@ const DeleteModal = ({ isOpen, onClose, onConfirm, itemName }) => {
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300 w-full h-full">
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300 w-full h-full p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
         ref={modalRef}
-        className="bg-white/90 backdrop-blur-md rounded-lg shadow-xl max-w-md w-full p-6 border border-white/40"
+        className="bg-white/90 backdrop-blur-md rounded-lg shadow-xl w-full max-w-md p-4 sm:p-6 border border-white/40"
       >
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-medium text-gray-900">Confirm Delete</h3>
@@ -127,21 +128,26 @@ const URLListItem = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-white/80 backdrop-blur-sm border border-white/40 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 flex items-center relative"
+      className="bg-white/80 backdrop-blur-sm border border-white/40 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col sm:flex-row items-start sm:items-center relative"
     >
       <div className="absolute top-0 left-0 h-full w-1.5 bg-gradient-to-b from-blue-400 to-purple-400"></div>
 
-      <div className="flex-grow p-4 pl-5">
-        <div className="flex items-center space-x-2">
-          <h3 className="font-medium text-blue-600">{shortUrl}</h3>
+      <div className="flex-grow p-4 pl-5 w-full">
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="font-medium text-blue-600">
+            {import.meta.env.VITE_REACT_SUBDOMAIN.replace(/^https?:\/\//, "")}/
+            {shortUrl}
+          </h3>
 
           <span className="bg-blue-100 text-blue-600 text-xs px-2 py-0.5 rounded-full font-medium">
-            {clickCount} clicks
+            {clickCount} {clickCount > 1 ? "clicks" : "click"}
           </span>
         </div>
 
-        <div className="mt-1 flex items-center text-sm text-gray-500 truncate">
-          <span className="truncate">{originalUrl}</span>
+        <div className="mt-1 flex items-center text-sm text-gray-500">
+          <div className="truncate max-w-full sm:max-w-xs md:max-w-md">
+            {originalUrl}
+          </div>
           <a
             href={originalUrl}
             target="_blank"
@@ -157,7 +163,7 @@ const URLListItem = ({
         </div>
       </div>
 
-      <div className="flex-shrink-0 pr-4 flex items-center space-x-2">
+      <div className="flex-shrink-0 p-4 pt-0 sm:pt-4 sm:pr-4 flex items-center space-x-2 w-full sm:w-auto justify-end sm:justify-start">
         <button
           onClick={handleCopy}
           className={`p-2 rounded-md transition-all duration-300 ease-in-out ${
@@ -168,6 +174,14 @@ const URLListItem = ({
           title="Copy short URL"
         >
           {copied ? <FaCheck size={18} /> : <FaCopy size={18} />}
+        </button>
+
+        <button
+          onClick={() => console.log("ANALYTICS FOR ", shortUrl)}
+          className={`p-2 rounded-md transition-all duration-300 ease-in-out ${"hover:bg-yellow-50 text-gray-400 hover:text-yellow-500"}`}
+          title="Show URL Analytics"
+        >
+          <FaChartBar size={18} />
         </button>
 
         <button
@@ -211,13 +225,13 @@ const URLList = ({ listData, onDeleteUrl, onCreateNew }) => {
       transition={{ duration: 0.5 }}
       className="relative"
     >
-      <div className="flex items-center justify-between p-4 pt-10 border-b border-white/30">
-        <div className="flex items-center">
-          <h2 className="text-2xl font-bold text-slate-800 mr-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 pt-10 border-b border-white/30 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
             Your Shortened URLs
           </h2>
           {listData?.length > 0 && (
-            <span className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full font-medium">
+            <span className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full font-medium w-fit">
               {listData?.length} URLs
             </span>
           )}
@@ -226,7 +240,7 @@ const URLList = ({ listData, onDeleteUrl, onCreateNew }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onCreateNew}
-          className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg shadow-md shadow-blue-500/20 flex items-center transition-all duration-200"
+          className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg shadow-md shadow-blue-500/20 flex items-center justify-center sm:justify-start transition-all duration-200 w-full sm:w-auto"
         >
           <FaPlus size={14} className="mr-2" />
           Create New URL
