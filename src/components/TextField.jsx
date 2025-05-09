@@ -1,4 +1,4 @@
-const ModalFormTextField = ({
+const TextField = ({
   label,
   id,
   placeholder,
@@ -65,4 +65,4 @@ const ModalFormTextField = ({
     </div>
   );
 };
-export default ModalFormTextField;
+export default TextField;
