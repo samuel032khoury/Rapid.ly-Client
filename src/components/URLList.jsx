@@ -1,99 +1,42 @@
-import { useEffect, useRef, useState } from "react";
+import { useFetchSingleAnalytics } from "@/hook/useQuery";
+import { useStoreContext } from "@/hook/useStoreContext";
 import { motion } from "framer-motion";
-import { createPortal } from "react-dom";
+import { useState } from "react";
 import {
   FaCheck,
   FaCopy,
   FaExternalLinkAlt,
-  FaTimes,
-  FaTrash,
   FaPlus,
-  FaChartBar,
+  FaTrash,
 } from "react-icons/fa";
+import AnalyticsCompactGraph from "./AnalyticsCompactGraph";
+import DeleteModal from "./DeleteModal";
 
-const DeleteModal = ({ isOpen, onClose, onConfirm, itemName }) => {
-  const modalRef = useRef(null);
+const ActionButton = ({ onClick, icon, color, title }) => {
+  const colors = {
+    blue: "hover:bg-blue-50 hover:text-blue-500",
+    green: "bg-green-100 text-green-600",
+    red: "hover:bg-red-50 hover:text-red-500",
+  };
 
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
+  const icons = {
+    copy: <FaCopy size={18} />,
+    check: <FaCheck size={18} />,
+    trash: <FaTrash size={18} />,
+  };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEsc);
-    }
+  const baseClass =
+    "p-2 rounded-md transition-all duration-300 linear text-gray-400";
+  const colorClass = colors[color];
 
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-    };
-  }, [isOpen, onClose]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
-  return createPortal(
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300 w-full h-full p-4">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
-        transition={{ duration: 0.3 }}
-        ref={modalRef}
-        className="bg-white/90 backdrop-blur-md rounded-lg shadow-xl w-full max-w-md p-4 sm:p-6 border border-white/40"
-      >
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-medium text-gray-900">Confirm Delete</h3>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-500 transition-colors"
-          >
-            <FaTimes size={20} />
-          </button>
-        </div>
-
-        <div className="mb-6">
-          <p className="text-gray-600">
-            Are you sure you want to delete{" "}
-            <span className="font-semibold text-gray-800">{itemName}</span>?
-            This action cannot be undone.
-          </p>
-        </div>
-
-        <div className="flex justify-end space-x-3">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-md transition-colors duration-200"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={onConfirm}
-            className="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-md transition-colors duration-200 flex items-center shadow-md shadow-red-500/20"
-          >
-            <FaTrash size={14} className="mr-2" />
-            Delete
-          </button>
-        </div>
-      </motion.div>
-    </div>,
-    document.body
+  return (
+    <button
+      onClick={onClick}
+      className={`${baseClass} ${colorClass}`}
+      title={title}
+    >
+      {icons[icon]}
+    </button>
   );
 };
 
@@ -105,6 +48,8 @@ const URLListItem = ({
   onDelete,
 }) => {
   const [copied, setCopied] = useState(false);
+  const { token } = useStoreContext();
+  const { data: graphData } = useFetchSingleAnalytics(token, shortUrl);
 
   const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
@@ -117,10 +62,7 @@ const URLListItem = ({
       `${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`
     );
     setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -128,94 +70,92 @@ const URLListItem = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-white/80 backdrop-blur-sm border border-white/40 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col sm:flex-row items-start sm:items-center relative"
+      className="bg-white/80 backdrop-blur-sm border border-white/40 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-200"
     >
-      <div className="absolute top-0 left-0 h-full w-1.5 bg-gradient-to-b from-blue-400 to-purple-400"></div>
+      <div className="absolute top-0 left-0 h-full w-1.5 bg-gradient-to-b from-blue-400 to-purple-400 z-10" />
 
-      <div className="flex-grow p-4 pl-5 w-full">
-        <div className="flex flex-wrap items-center gap-2">
-          <h3 className="font-medium text-blue-600">
-            {import.meta.env.VITE_REACT_SUBDOMAIN.replace(/^https?:\/\//, "")}/
-            {shortUrl}
-          </h3>
+      <div className="flex flex-col w-full">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center p-4 pl-5 relative">
+          <div className="flex-grow w-full">
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="font-medium text-blue-600">
+                <span className="sm:inline-block hidden">
+                  {import.meta.env.VITE_REACT_SUBDOMAIN.replace(
+                    /^https?:\/\//,
+                    ""
+                  )}
+                  /
+                </span>
+                {shortUrl}
+              </h3>
+              <span className="bg-blue-100 text-blue-600 text-xs px-2 py-0.5 rounded-full font-medium">
+                {clickCount} {clickCount === 1 ? "click" : "clicks"}
+              </span>
+            </div>
 
-          <span className="bg-blue-100 text-blue-600 text-xs px-2 py-0.5 rounded-full font-medium">
-            {clickCount} {clickCount > 1 ? "clicks" : "click"}
-          </span>
-        </div>
+            <div className="mt-1 flex items-center text-sm text-gray-500">
+              <div className="truncate max-w-full sm:max-w-xs md:max-w-md">
+                {originalUrl}
+              </div>
+              <a
+                href={originalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 text-gray-400 hover:text-blue-500 flex-shrink-0 transition-colors"
+              >
+                <FaExternalLinkAlt size={14} />
+              </a>
+            </div>
 
-        <div className="mt-1 flex items-center text-sm text-gray-500">
-          <div className="truncate max-w-full sm:max-w-xs md:max-w-md">
-            {originalUrl}
+            <div className="mt-1 text-xs text-gray-400">
+              Created {formattedDate}
+            </div>
           </div>
-          <a
-            href={originalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 text-gray-400 hover:text-blue-500 flex-shrink-0 transition-colors"
-          >
-            <FaExternalLinkAlt size={14} />
-          </a>
+
+          <div className="flex-shrink-0 mt-3 sm:mt-0 flex items-center space-x-2 w-full sm:w-auto justify-end sm:justify-start">
+            <ActionButton
+              onClick={handleCopy}
+              icon={copied ? "check" : "copy"}
+              color={copied ? "green" : "blue"}
+              title="Copy short URL"
+            />
+
+            <ActionButton
+              onClick={() => onDelete(shortUrl)}
+              icon="trash"
+              color="red"
+              title="Delete URL"
+            />
+          </div>
         </div>
 
-        <div className="mt-1 text-xs text-gray-400">
-          Created {formattedDate}
+        <div className="px-5 pb-4 w-full">
+          <AnalyticsCompactGraph graphData={graphData} />
         </div>
-      </div>
-
-      <div className="flex-shrink-0 p-4 pt-0 sm:pt-4 sm:pr-4 flex items-center space-x-2 w-full sm:w-auto justify-end sm:justify-start">
-        <button
-          onClick={handleCopy}
-          className={`p-2 rounded-md transition-all duration-300 ease-in-out ${
-            copied
-              ? "bg-green-100 text-green-600"
-              : "hover:bg-blue-50 text-gray-400 hover:text-blue-500"
-          }`}
-          title="Copy short URL"
-        >
-          {copied ? <FaCheck size={18} /> : <FaCopy size={18} />}
-        </button>
-
-        <button
-          onClick={() => console.log("ANALYTICS FOR ", shortUrl)}
-          className={`p-2 rounded-md transition-all duration-300 ease-in-out ${"hover:bg-yellow-50 text-gray-400 hover:text-yellow-500"}`}
-          title="Show URL Analytics"
-        >
-          <FaChartBar size={18} />
-        </button>
-
-        <button
-          onClick={() => onDelete(shortUrl)}
-          className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors"
-          title="Delete URL"
-        >
-          <FaTrash size={18} />
-        </button>
       </div>
     </motion.div>
   );
 };
 
 const URLList = ({ listData, onDeleteUrl, onCreateNew }) => {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
 
   const handleDeleteClick = (shortUrl) => {
     setItemToDelete(shortUrl);
-    setShowDeleteModal(true);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsDeleteModalOpen(false);
+    setItemToDelete(null);
   };
 
   const handleDeleteConfirm = () => {
     if (itemToDelete) {
       onDeleteUrl(itemToDelete);
-      setItemToDelete(null);
-      setShowDeleteModal(false);
+      handleCloseModal();
     }
-  };
-
-  const handleCloseModal = () => {
-    setShowDeleteModal(false);
-    setItemToDelete(null);
   };
 
   return (
@@ -225,17 +165,34 @@ const URLList = ({ listData, onDeleteUrl, onCreateNew }) => {
       transition={{ duration: 0.5 }}
       className="relative"
     >
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 pt-10 border-b border-white/30 gap-4">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between px-7 pt-6 border-b border-white/30 gap-4">
+        <div className="flex flex-col sm:flex-col sm:items-start gap-0">
+          <div className="flex items-center gap-px">
+            <span
+              className={`inline-block px-4 py-1 bg-blue-100 rounded-full rounded-r-none text-blue-600 font-medium text-sm mb-3 `}
+            >
+              URL Library
+            </span>
+            <span className="inline-block px-4 py-1 rounded-l-none rounded-full bg-blue-100 text-blue-600 font-medium text-sm mb-3">
+              {listData.length} URL{listData.length > 1 ? "s" : ""}
+            </span>
+          </div>
+          <h2 className="text-2xl font-bold text-slate-800">
+            Your Shortened URLs
+          </h2>
+          <p className="text-slate-600 text-sm md:text-base">
+            Manage your created shortened URLs
+          </p>
+          {/* <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
             Your Shortened URLs
           </h2>
           {listData?.length > 0 && (
             <span className="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full font-medium w-fit">
-              {listData?.length} URLs
+              {listData.length} URLs
             </span>
-          )}
+          )} */}
         </div>
+
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -252,8 +209,9 @@ const URLList = ({ listData, onDeleteUrl, onCreateNew }) => {
           <URLListItem key={item.id} {...item} onDelete={handleDeleteClick} />
         ))}
       </div>
+
       <DeleteModal
-        isOpen={showDeleteModal}
+        isOpen={isDeleteModalOpen}
         onClose={handleCloseModal}
         onConfirm={handleDeleteConfirm}
         itemName={itemToDelete}
