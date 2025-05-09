@@ -85,7 +85,10 @@ export const useFetchAllUrls = (token) => {
       }
     },
     select: (resp) =>
-      resp.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
+      resp.data.sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      ),
     ...defaultQueryOptions,
   });
 };

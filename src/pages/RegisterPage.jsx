@@ -1,11 +1,12 @@
 import api from "@/api/api";
 import AuthFormTextField from "@/components/AuthFormTextField";
+import { useStoreContext } from "@/hook/useStoreContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const registerSchema = z.object({
@@ -25,6 +26,7 @@ const registerSchema = z.object({
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const { token } = useStoreContext();
 
   useEffect(() => {
     toast.dismiss();
@@ -88,6 +90,10 @@ const RegisterPage = () => {
       transition: { duration: 0.5 },
     },
   };
+
+  if (token) {
+    return <Navigate to="/dashboard" />;
+  }
 
   return (
     <div className="min-h-[calc(100vh-64px)] flex justify-center items-center py-12 px-6 bg-gradient-to-br from-purple-50 via-blue-100 to-purple-50">

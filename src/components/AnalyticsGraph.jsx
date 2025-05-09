@@ -18,8 +18,8 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   TimeScale,
-  Legend,
-  Filler
+  Filler,
+  Legend
 );
 
 const AnalyticsGraph = ({ graphData }) => {
@@ -68,7 +68,10 @@ const AnalyticsGraph = ({ graphData }) => {
         const itemDate = new Date(item.clickDate);
         return itemDate >= startDate && itemDate <= today;
       })
-      .sort((a, b) => new Date(a.clickDate) - new Date(b.clickDate));
+      .sort(
+        (a, b) =>
+          new Date(a.clickDate).getTime() - new Date(b.clickDate).getTime()
+      );
   };
 
   const aggregateData = (filteredData) => {
@@ -189,7 +192,6 @@ const AnalyticsGraph = ({ graphData }) => {
     responsive: true,
     plugins: {
       legend: {
-        display: true,
         position: "top",
         align: "end",
         labels: {
@@ -207,23 +209,19 @@ const AnalyticsGraph = ({ graphData }) => {
         backgroundColor: "rgba(255, 255, 255, 0.9)",
         titleColor: "#1e293b",
         bodyColor: "#334155",
-        bodyFont: {
-          family: "'Inter', sans-serif",
-        },
-        titleFont: {
-          family: "'Inter', sans-serif",
-          weight: "bold",
-        },
         padding: 12,
-        boxWidth: 10,
-        boxHeight: 10,
-        boxPadding: 3,
         usePointStyle: true,
         borderColor: "rgba(255, 255, 255, 0.3)",
         borderWidth: 1,
         cornerRadius: 8,
         displayColors: true,
-        caretSize: 5,
+        titleFont: {
+          family: "'Inter', sans-serif",
+          weight: 700,
+        },
+        bodyFont: {
+          family: "'Inter', sans-serif",
+        },
       },
     },
     scales: {
@@ -231,10 +229,7 @@ const AnalyticsGraph = ({ graphData }) => {
         beginAtZero: true,
         ticks: {
           callback: function (value) {
-            if (Number.isInteger(value)) {
-              return value.toString();
-            }
-            return "";
+            return Number.isInteger(value) ? value.toString() : "";
           },
           font: {
             family: "'Inter', sans-serif",
@@ -242,17 +237,16 @@ const AnalyticsGraph = ({ graphData }) => {
           },
           color: "#64748b",
           padding: 10,
-          maxTicksLimit: 8,
         },
         grid: {
           color: "rgba(203, 213, 225, 0.4)",
-          drawBorder: false,
+          drawTicks: false,
         },
         border: {
           display: false,
         },
         title: {
-          display: windowWidth > 480,
+          display: true,
           text: "Number Of Clicks",
           font: {
             family: "'Inter', sans-serif",
@@ -266,28 +260,24 @@ const AnalyticsGraph = ({ graphData }) => {
         },
       },
       x: {
-        beginAtZero: true,
         ticks: {
           font: {
             family: "'Inter', sans-serif",
-            size: windowWidth < 480 ? 10 : 12,
+            size: 12,
           },
           color: "#64748b",
           padding: 10,
-          maxRotation: windowWidth < 768 ? 45 : 0,
           autoSkip: true,
           autoSkipPadding: 15,
-          maxTicksLimit: windowWidth < 480 ? 6 : windowWidth < 768 ? 8 : 12,
         },
         grid: {
           display: false,
-          drawBorder: false,
         },
         border: {
           display: false,
         },
         title: {
-          display: windowWidth > 480,
+          display: true,
           text: "Date",
           font: {
             family: "'Inter', sans-serif",
@@ -301,17 +291,8 @@ const AnalyticsGraph = ({ graphData }) => {
         },
       },
     },
-    layout: {
-      padding: {
-        left: windowWidth < 480 ? 5 : 10,
-        right: windowWidth < 480 ? 5 : 10,
-        top: windowWidth < 480 ? 5 : 10,
-        bottom: windowWidth < 480 ? 5 : 10,
-      },
-    },
     animation: {
       duration: 1000,
-      easing: "easeOutQuart",
     },
   };
 
@@ -377,6 +358,7 @@ const AnalyticsGraph = ({ graphData }) => {
               </div>
             </div>
           ) : (
+            // @ts-ignore
             <Bar className="w-full h-full" data={data} options={options} />
           )}
         </div>

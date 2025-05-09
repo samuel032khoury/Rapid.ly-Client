@@ -162,7 +162,7 @@ const FormTextField = ({
               type="button"
               className="pr-4 flex items-center justify-center h-12 text-slate-400 hover:text-slate-600 transition-colors"
               onClick={() => setShowPassword(!showPassword)}
-              tabIndex="-1"
+              tabIndex={-1}
             >
               {showPassword ? icons.eyeSlash : icons.eye}
             </button>

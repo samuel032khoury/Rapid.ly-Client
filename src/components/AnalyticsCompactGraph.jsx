@@ -34,7 +34,10 @@ const AnalyticsCompactGraph = ({ graphData }) => {
         const itemDate = new Date(item.clickDate);
         return itemDate >= startDate && itemDate <= today;
       })
-      .sort((a, b) => new Date(a.clickDate) - new Date(b.clickDate));
+      .sort(
+        (a, b) =>
+          new Date(a.clickDate).getTime() - new Date(b.clickDate).getTime()
+      );
 
     return {
       labels: filteredData.map((item) => {
@@ -84,7 +87,7 @@ const AnalyticsCompactGraph = ({ graphData }) => {
         titleFont: {
           family: "'Inter', sans-serif",
           size: 11,
-          weight: "bold",
+          weight: 700,
         },
         padding: 8,
         cornerRadius: 4,

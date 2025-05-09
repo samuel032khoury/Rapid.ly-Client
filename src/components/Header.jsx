@@ -1,3 +1,4 @@
+import { useStoreContext } from "@/hook/useStoreContext";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,10 +9,12 @@ const ANALYTICS_URL = "/analytics";
 const ABOUT_URL = "/about";
 const LOGIN_URL = "/login";
 const SIGNUP_URL = "/register";
+const DASHBOARD_URL = "/dashboard";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoverEnabled, setHoverEnabled] = useState(false);
+  const { token, setToken } = useStoreContext();
   useEffect(() => {
     const timer = setTimeout(() => {
       setHoverEnabled(true);
@@ -19,6 +22,11 @@ const Header = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const logOutHandler = () => {
+    setToken(null);
+    localStorage.removeItem("JWT_TOKEN");
+  };
 
   return (
     <header
@@ -39,6 +47,7 @@ const Header = () => {
             className={`${
               hoverEnabled ? "md:hover:scale-110" : ""
             } transition-transform duration-700`}
+            onClick={() => setIsMenuOpen(false)}
           >
             <img
               src="/images/rapidly-logo.png"
@@ -77,12 +86,25 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
-            <Link to={LOGIN_URL}>Login</Link>
-          </button>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
-            <Link to={SIGNUP_URL}>Sign Up Free</Link>
-          </button>
+          <div className={token ? "hidden" : "flex"}>
+            <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
+              <Link to={LOGIN_URL}>Login</Link>
+            </button>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium">
+              <Link to={SIGNUP_URL}>Sign Up Free</Link>
+            </button>
+          </div>
+          <div className={token ? "flex" : "hidden"}>
+            <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
+              <Link to={DASHBOARD_URL}>Dashboard</Link>
+            </button>
+            <button
+              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors font-medium"
+              onClick={logOutHandler}
+            >
+              <Link to={"/"}>Log out</Link>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -136,44 +158,61 @@ const Header = () => {
           <Link
             to={FEATURES_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(false)}
           >
             Features
           </Link>
           <Link
             to={PRICING_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(false)}
           >
             Pricing
           </Link>
           <Link
             to={ANALYTICS_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(false)}
           >
             Analytics
           </Link>
           <Link
             to={ABOUT_URL}
             className="text-slate-700 hover:text-blue-500 transition-colors font-medium"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(false)}
           >
             About
           </Link>
-          <div className="flex flex-col space-y-2 pt-2 border-t border-slate-200/70">
-            <button
-              className="px-4 py-2 text-slate-700 border border-slate-300/70 bg-white/30 backdrop-blur-sm rounded-md hover:bg-white/50 transition-colors font-medium"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Link to={LOGIN_URL}>Login</Link>
-            </button>
-            <button
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Link to={SIGNUP_URL}>Sign Up Free</Link>
-            </button>
+          <div className="pt-2 border-t border-slate-200/70">
+            <div className={token ? "hidden" : "flex flex-col space-y-2"}>
+              <Link to={LOGIN_URL}>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full px-4 py-2 text-slate-700 border border-slate-300/70 bg-white/30 backdrop-blur-sm rounded-md hover:bg-white/50 transition-colors font-medium"
+                >
+                  Login
+                </button>
+              </Link>
+              <Link to={SIGNUP_URL}>
+                <button
+                  className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Sign Up Free
+                </button>
+              </Link>
+            </div>
+            <div className={token ? "flex flex-col space-y-2" : "hidden"}>
+              <button className="px-4 py-2 text-slate-700 hover:text-blue-500 transition-colors font-medium">
+                <Link to={DASHBOARD_URL}>Dashboard</Link>
+              </button>
+              <button
+                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors font-medium"
+                onClick={logOutHandler}
+              >
+                <Link to={"/"}>Log out</Link>
+              </button>
+            </div>
           </div>
         </nav>
       </div>

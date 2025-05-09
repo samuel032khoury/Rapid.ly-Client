@@ -9,6 +9,7 @@ import URLList from "@/components/URLList";
 import { URLShortenerModal } from "@/components/URLShortenerModal";
 import { useFetchAllUrls, useFetchAllAnalytics } from "@/hook/useQuery";
 import { useStoreContext } from "@/hook/useStoreContext";
+import { Navigate } from "react-router-dom";
 
 const DashboardPage = () => {
   const { token } = useStoreContext();
@@ -28,6 +29,10 @@ const DashboardPage = () => {
     toast.success(`URL ${shortUrl} deleted successfully`);
     refetch();
   };
+
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-tl from-blue-100 via-gray-50 to-blue-100 pb-16">
