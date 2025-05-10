@@ -25,6 +25,12 @@ export const URLShortenerWidget = () => {
   });
 
   const onSubmit = async (data) => {
+    const iframe = document.querySelectorAll("iframe")[2];
+    const targetDiv = iframe.parentElement;
+    if (targetDiv) {
+      targetDiv.style.transform = "translateY(80px) scale(0.9)";
+    }
+
     try {
       let recaptchaToken = null;
       if (recaptchaRef.current) {
