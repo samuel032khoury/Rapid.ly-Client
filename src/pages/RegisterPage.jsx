@@ -26,7 +26,7 @@ const registerSchema = z.object({
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { token } = useStoreContext();
+  const { token, setToken } = useStoreContext();
 
   useEffect(() => {
     toast.dismiss();
@@ -56,8 +56,9 @@ const RegisterPage = () => {
         "/api/auth/public/register",
         data
       );
+      setToken(response.token);
       reset();
-      navigate("/login");
+      navigate("/dashboard");
       toast.success("Registration successful");
     } catch (error) {
       console.error("Registration error:", error);

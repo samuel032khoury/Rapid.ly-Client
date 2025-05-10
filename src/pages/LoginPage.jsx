@@ -49,9 +49,14 @@ const LoginPage = () => {
       reset();
       navigate("/dashboard");
     } catch (error) {
-      toast.error(
-        error?.response?.data?.message ?? "An Error Occurred. Please try again."
-      );
+      if (error?.response?.status === 401 || error?.response?.status === 403) {
+        toast.error("Invalid username or password");
+      } else {
+        toast.error(
+          error?.response?.data?.message ??
+            "An Error Occurred. Please try again."
+        );
+      }
     } finally {
       setIsLoading(false);
     }

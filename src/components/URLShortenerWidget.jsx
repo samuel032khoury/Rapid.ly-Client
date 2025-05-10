@@ -25,8 +25,7 @@ export const URLShortenerWidget = () => {
   });
 
   const onSubmit = async (data) => {
-    const iframe = document.querySelectorAll("iframe")[2];
-    const targetDiv = iframe.parentElement;
+    const targetDiv = document.querySelectorAll("iframe")[2]?.parentElement;
     if (targetDiv) {
       targetDiv.style.transform = "translateY(80px) scale(0.9)";
     }
@@ -36,6 +35,7 @@ export const URLShortenerWidget = () => {
       if (recaptchaRef.current) {
         try {
           recaptchaToken = await recaptchaRef.current.executeAsync();
+          console.log("reCAPTCHA token:", recaptchaToken);
         } catch {
           throw new Error("reCAPTCHA was not completed. Please try again.");
         }
