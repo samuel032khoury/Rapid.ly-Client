@@ -27,7 +27,7 @@ import UrlRedirectionPage from "./pages/UrlRedirectionPage";
 
 const MainApp = () => {
   return (
-    <>
+    <div className="min-w-[380px]">
       <GlobalToaster />
       <ScrollToTop />
       <Header />
@@ -53,7 +53,7 @@ const MainApp = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -6,8 +6,8 @@ const HeroSection = () => {
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center pb-6 md:pb-0">
       {/* Background gradient */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
-      <div className="absolute top-48 -left-24 w-64 h-64 bg-blue-200 rounded-full opacity-40 blur-3xl"></div>
+      <div className="-z-10 absolute -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
+      <div className="-z-10 absolute top-48 -left-24 w-64 h-64 bg-blue-200 rounded-full opacity-40 blur-3xl"></div>
       <div className="container mx-auto px-4 py-8 lg:py-12 lg:pt8">
         <div className="lg:flex items-center justify-between gap-12">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
