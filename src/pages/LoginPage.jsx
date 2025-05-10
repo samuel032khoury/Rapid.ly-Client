@@ -49,7 +49,6 @@ const LoginPage = () => {
       reset();
       navigate("/dashboard");
     } catch (error) {
-      console.error("Login error:", error);
       toast.error(
         error?.response?.data?.message ?? "An Error Occurred. Please try again."
       );

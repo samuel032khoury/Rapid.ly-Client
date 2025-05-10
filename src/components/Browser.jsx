@@ -6,8 +6,8 @@ const Browser = () => {
   const shortUrl = "https://rapid.ly/x7B9q";
 
   return (
-    <div className="relative rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-300 z-10 min-h-96 w-full max-w-3xl mx-auto">
-      <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-slate-200 to-slate-100 rounded-t-xl flex items-center px-4 z-10">
+    <div className="relative rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-300 z-0 min-h-96 w-full max-w-3xl mx-auto">
+      <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-slate-200 to-slate-100 rounded-t-xl flex items-center px-4 z-0">
         <div className="flex space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500 shadow-inner"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-400 shadow-inner"></div>

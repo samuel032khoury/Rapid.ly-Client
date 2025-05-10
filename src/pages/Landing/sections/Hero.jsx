@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Background gradient */}
       <div className="-z-10 absolute -top-24 -right-24 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
       <div className="-z-10 absolute top-48 -left-24 w-64 h-64 bg-blue-200 rounded-full opacity-40 blur-3xl"></div>
-      <div className="container mx-auto px-4 py-8 lg:py-12 lg:pt8">
+      <div className="container mx-auto px-4 py-8 lg:py-12 lg:pt8 relative">
         <div className="lg:flex items-center justify-between gap-12">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
             <motion.div
@@ -61,43 +61,6 @@ const HeroSection = () => {
             >
               {/* Browser Section */}
               <Browser />
-
-              {/* Floating elements */}
-              <motion.div
-                initial={{ y: 10 }}
-                animate={{ y: -10 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-8 right-14 w-16 h-16 bg-blue-200 rounded-full opacity-70 blur-xl z-0"
-              ></motion.div>
-              <motion.div
-                initial={{ y: -5 }}
-                animate={{ y: 15 }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-10 left-10 w-20 h-20 bg-blue-300 rounded-xl opacity-60 blur-xl rotate-12 z-0"
-              ></motion.div>
-              <motion.div
-                initial={{ y: 0 }}
-                animate={{ y: 10 }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-                className="absolute bottom-24 right-5 w-12 h-12 bg-blue-400 rounded-xl opacity-50 blur-xl -rotate-12 z-0"
-              ></motion.div>
             </motion.div>
           </div>
         </div>

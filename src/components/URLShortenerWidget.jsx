@@ -25,7 +25,6 @@ export const URLShortenerWidget = () => {
   });
 
   const onSubmit = async (data) => {
-    setIsLoading(true);
     try {
       let recaptchaToken = null;
       if (recaptchaRef.current) {
@@ -41,7 +40,7 @@ export const URLShortenerWidget = () => {
       } else {
         throw new Error("reCAPTCHA is not loaded. Please refresh the page.");
       }
-
+      setIsLoading(true);
       const { data: response } = await api.post(
         "/api/public/shorten",
         {
@@ -65,6 +64,7 @@ export const URLShortenerWidget = () => {
       await copyToClipboard(shortenedUrl);
       toast.success("Shortened URL copied to clipboard!");
     } catch (err) {
+      toast.dismiss();
       toast.error("Error: " + (err?.message || "Failed to shorten URL"));
     } finally {
       setIsLoading(false);
@@ -76,12 +76,8 @@ export const URLShortenerWidget = () => {
   };
 
   const copyToClipboard = async (shortenedUrl) => {
-    try {
-      await navigator.clipboard.writeText(shortenedUrl);
-      toast.success("Shortened URL copied to clipboard!");
-    } catch {
-      toast.error("Failed to copy shortened URL");
-    }
+    await navigator.clipboard.writeText(shortenedUrl);
+    toast.success("Shortened URL copied to clipboard!");
   };
 
   return (
@@ -109,7 +105,7 @@ export const URLShortenerWidget = () => {
               />
               <button
                 type="submit"
-                disabled={isLoading || recaptchaRef.current === null}
+                disabled={isLoading}
                 className="bg-blue-500/90 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-colors whitespace-nowrap shadow-lg hover:shadow-blue-400/20 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? "Shortening..." : "Shorten URL"}
