@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useRef } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import urlSchema from "@/schema/urlSchema";
-import toast from "react-hot-toast";
 import api from "@/api/api";
+import urlSchema from "@/schema/urlSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 export const URLShortenerWidget = () => {
   const [isLoading, setIsLoading] = useState(false);

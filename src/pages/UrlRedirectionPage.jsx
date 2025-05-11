@@ -1,8 +1,8 @@
 import api from "@/api/api";
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import NotFoundPage from "./NotFoundPage";
 import Spinner from "@/components/Spinner";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import NotFoundPage from "./NotFoundPage";
 
 function UrlRedirectionPage() {
   const { url } = useParams();

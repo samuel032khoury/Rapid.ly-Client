@@ -59,7 +59,7 @@ const URLListItem = ({
 
   const handleCopy = () => {
     navigator.clipboard.writeText(
-      `${import.meta.env.VITE_REACT_SUBDOMAIN}/${shortUrl}`
+      `${import.meta.env.VITE_REACT_MAIN}/s/${shortUrl}`
     );
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -80,11 +80,8 @@ const URLListItem = ({
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="font-medium text-blue-600">
                 <span className="sm:inline-block hidden">
-                  {import.meta.env.VITE_REACT_SUBDOMAIN.replace(
-                    /^https?:\/\//,
-                    ""
-                  )}
-                  /
+                  {import.meta.env.VITE_REACT_MAIN.replace(/^https?:\/\//, "")}
+                  /s/
                 </span>
                 {shortUrl}
               </h3>

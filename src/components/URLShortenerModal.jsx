@@ -72,9 +72,7 @@ export const URLShortenerModal = ({
           "Content-Type": "application/json",
         },
       });
-      const shortUrl = `${import.meta.env.VITE_REACT_SUBDOMAIN}/${
-        res.shortUrl
-      }`;
+      const shortUrl = `${import.meta.env.VITE_REACT_MAIN}/s/${res.shortUrl}`;
       navigator.clipboard.writeText(shortUrl);
       toast.success("Short URL created and copied to clipboard!", {
         position: "bottom-right",
