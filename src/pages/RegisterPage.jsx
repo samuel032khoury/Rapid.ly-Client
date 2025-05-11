@@ -57,6 +57,7 @@ const RegisterPage = () => {
         data
       );
       setToken(response.token);
+      localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token));
       reset();
       navigate("/dashboard");
       toast.success("Registration successful");
