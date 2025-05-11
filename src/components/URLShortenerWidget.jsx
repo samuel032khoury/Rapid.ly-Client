@@ -47,6 +47,7 @@ export const URLShortenerWidget = () => {
         throw new Error("reCAPTCHA is not loaded. Please refresh the page.");
       }
       setIsLoading(true);
+      // TODO: Implement the URL shortening API call
       const { data: response } = await api.post(
         "/api/public/shorten",
         {
